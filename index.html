@@ -160,6 +160,33 @@
     .xmband-inner .v { font-size:18px; }
     .pace-card .value { font-size:16px; }
   }
+
+  /* ===== Huddle flow layout ===== */
+  .jump-nav { display:flex; gap:6px; margin-bottom:5px; font-size:9px; }
+  .jump-nav a { flex:1; text-align:center; background:#F5F0FA; border:1px solid #D9C7EC; border-radius:4px; padding:3px 4px; color:#6E2C91; font-weight:700; text-decoration:none; }
+  .section-band { display:flex; align-items:center; gap:8px; background:#6E2C91; color:#fff; border-radius:5px; padding:4px 10px; margin:6px 0 5px; }
+  .section-band .num { background:#fff; color:#6E2C91; width:20px; height:20px; border-radius:50%; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; flex:none; }
+  .section-band .st { font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:.4px; line-height:1.1; }
+  .section-band .ss { font-size:8.5px; opacity:.9; }
+  .ops-grid { display:flex; gap:8px; align-items:stretch; }
+  .ops-card { flex:1; border:1px solid #D9C7EC; border-radius:6px; padding:6px 9px; background:#fff; font-size:9px; line-height:1.35; }
+  .ops-card h3 { margin:0 0 4px; font-size:10px; color:#6E2C91; text-transform:uppercase; letter-spacing:.3px; border-bottom:1px solid #D9C7EC; padding-bottom:2px; }
+  .ops-card.alert { background:#FDECEA; border-color:#C00000; }
+  .ops-card.alert h3 { color:#C00000; border-color:#C00000; }
+  .newpromo { background:#FFF8E1; border:1px dashed #E8A800; border-radius:4px; padding:3px 6px; margin-top:5px; font-size:8.5px; color:#6b5200; }
+  .mut { color:#888; font-weight:400; font-size:.85em; }
+  .nps-wide { display:flex; gap:14px; align-items:center; border:1px solid #ddd; border-radius:6px; padding:6px 10px; }
+  .nps-wide .big { font-size:34px; font-weight:800; color:#C00000; line-height:1; text-align:center; }
+  .nps-wide .big small { display:block; font-size:8px; color:#777; font-weight:600; text-transform:uppercase; }
+  .nps-wide table { width:auto; min-width:230px; font-size:9px; margin:0; }
+  .gp-grid { display:flex; gap:8px; align-items:flex-start; }
+  .gp-grid > div { flex:1; }
+  .sub-title { font-size:10px; font-weight:800; color:#6E2C91; text-transform:uppercase; margin:2px 0 3px; }
+  .gp-grid > div, .ops-card { min-width:0; }
+  @media screen { .page { border-bottom:3px solid #E6DDF0; margin-bottom:14px; padding-bottom:12px; } }
+  @media print { .jump-nav { display:none; } }
+  @media (max-width:1024px) { .ops-grid, .gp-grid, .nps-wide { flex-wrap:wrap; } .ops-card { flex:1 1 46%; min-width:min(260px,100%); } .gp-grid > div { flex:1 1 100%; } .jump-nav { position:sticky; top:0; z-index:5; background:#fff; padding:4px 0; } .jump-nav a { font-size:12px; padding:6px 2px; } .ops-card { font-size:12.5px; } .section-band .st { font-size:15px; } .section-band .ss { font-size:11px; } .nps-wide table { font-size:12px; } .promo-item, .promo-item b { font-size:12.5px; } .promo-item .dates { font-size:10.5px; } .newpromo { font-size:12px; } }
+  @media (max-width:600px) { .ops-grid { flex-direction:column; } .ops-card { flex:1 1 auto; width:100%; } .nps-wide { flex-direction:column; align-items:flex-start; } .nps-wide .big { font-size:42px; } }
 </style>
 
 </head>
@@ -182,33 +209,73 @@
     🔥 OCTOBER BMOR MONTH — DAY 9 — STORE XM+ ATTACH AT 50.00% 🔥
   </div>
 
-  <div class="mid-row">
-    <div class="nps-box">
-      <div class="box-title">NPS — SMS tNPS</div>
-      <div class="nps-inner">
-        <div class="nps-score below">89.2</div>
-        <div>
-          <div class="bubbles">
-            <div class="bubble"><div class="n">65</div>Oct. responses</div>
-            <div class="bubble"><div class="n" style="color:#C00000;">172</div>benchmark pace</div>
-            <div class="bubble"><div class="n" style="color:#C00000;">−107</div>vs benchmark</div>
-          </div>
-          <div class="nps-delta">89.2% MTD — just under the 90% target, and +11.3 over the same period last year. Up from 88.1% yesterday: the week of 10/4 recovered from 87.0% to 89.7% (29 responses) and the week of 9/27 holds at 88.9% (36). Response volume is still far under benchmark pace (65 vs. 172).</div>
-        </div>
-      </div>
+  <div class="jump-nav"><a href="#ops">① Operations</a><a href="#nps">② NPS</a><a href="#results">③ Results</a><a href="#plan">④ Game Plan</a></div>
+  <div class="section-band" id="ops"><span class="num">1</span><div><div class="st">Operations &amp; Updates</div><div class="ss">Start here — promos, alerts, standards, cleaning</div></div></div>
+
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>📣 Promos &amp; Deals</h3>
+      <div class="promo-item"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#tabletandsmartwatch" target="_blank">Diamond — $300 off Apple, Samsung, Google smartwatches</a></b> <span class="dates">(thru 10/30)</span></div>
+      <div class="promo-item"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#freeline" target="_blank">Waived $25 line activation fee for new XM customer</a></b> <span class="dates">(thru 10/30)</span></div>
+      <div class="promo-item"><b>Always On — Free line deal</b> <span class="dates">(ongoing)</span></div>
+
+      <div class="newpromo">🆕 <b>New promos &amp; cellular watch changes</b> — being added to this board. Ask Shawn for details in the meantime.</div>
     </div>
-    <div class="xmband-box">
+    <div class="ops-card alert">
+      <h3>⚠ Team Alert — Pricing Check</h3>
+      Some customers are showing up with a <b>$50/mo, 5-year Gig speed plan</b>. Flag this to Shawn before finalizing if you see it — confirm eligibility before completing the sale.
+      <h3 style="margin-top:7px; color:#6E2C91; border-color:#D9C7EC;">✅ BMOR Operational Standards</h3>
+      Inventory counts solid · Overtime ≤2% · Zero Disco/Reco integrity issues · No Usage under 10%
+    </div>
+    <div class="ops-card" style="background:#F3EEFB; border-color:#6E2C91;">
+      <h3>🧹 Cleaning Rotation — Next Week (10/12–10/18, Wk 4 of 5)</h3>
+        <table style="width:100%; border-collapse:collapse; font-size:9px;">
+          <tr style="font-weight:700; border-bottom:1px solid #D9C7EC;"><td>Zone</td><td>Assigned</td></tr>
+          <tr><td>A — Front &amp; Windows</td><td>Ashton &amp; Brianna</td></tr>
+          <tr><td>B — Sales Floor</td><td>Kevin &amp; Daisy</td></tr>
+          <tr><td>C — Register Area</td><td>Kenneth, Justin &amp; Nancy</td></tr>
+          <tr><td>D — Back Room</td><td>De-Jon &amp; Andrew</td></tr>
+          <tr><td>E — Restroom &amp; Supply</td><td>Albert &amp; Jayme</td></tr>
+        </table>
+      <div style="margin-top:4px; font-size:8px;">Full checklists &amp; 5-week schedule: <a href="https://claude.ai/artifact/SDrzApSmTQHCg9NvVd3Q9Z" target="_blank">cleaning rotation page</a></div>
+    </div>
+  </div>
+  <div class="section-band" id="nps"><span class="num">2</span><div><div class="st">NPS</div><div class="ss">Where we stand with customers — SMS tNPS</div></div></div>
+
+  <div class="nps-wide">
+    <div class="big">89.2<small>MTD · goal 90</small></div>
+    <div class="bubbles" style="font-size:10px; gap:12px;">
+      <div class="bubble"><div class="n" style="font-size:14px;">65</div>Oct. responses</div>
+      <div class="bubble"><div class="n" style="font-size:14px; color:#C00000;">172</div>benchmark pace</div>
+      <div class="bubble"><div class="n" style="font-size:14px; color:#C00000;">−107</div>vs benchmark</div>
+      <div class="bubble"><div class="n" style="font-size:14px; color:#1E7E34;">+11.3</div>vs last year (77.9)</div>
+    </div>
+    <table>
+      <thead><tr><th style="text-align:left;">Week of</th><th>Score</th><th>Responses</th></tr></thead>
+      <tbody><tr><td class="rep-name">9/27</td><td>88.9</td><td>36</td></tr><tr><td class="rep-name">10/4</td><td>89.7</td><td>29</td></tr><tr><td class="rep-name">10/11</td><td>—</td><td>0</td></tr></tbody>
+    </table>
+    <div style="flex:1; font-size:9px; line-height:1.35; min-width:200px;"><b>Up from 88.1% yesterday</b> — the week of 10/4 recovered from 87.0% to 89.7%. We're within 1 point of the 90% goal, but only <b>65 of 172</b> benchmark responses are in: <b>ask every customer for the survey</b> and set expectations for a 9–10 experience before they leave.</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="header"><div><h1 style="font-size:18px;">Daily Huddle Board — Results</h1><div class="sub">Bridge Xfinity Store #59010 — Sunrise Plaza</div></div><div class="date-box"><div class="big" style="font-size:13px;">October 9, 2026 (MTD 10/1-10/9)</div></div></div>
+
+  <div class="section-band" id="results"><span class="num">3</span><div><div class="st">Results</div><div class="ss">Yesterday's numbers, who moved, and where we rank</div></div></div>
+
+  <div class="mid-row">
+    <div class="xmband-box" style="flex:1; background:#fff; border:1px solid #ddd; border-radius:4px; padding:3px 6px;">
       <div class="box-title">Store XM+ Band</div>
       <div class="xmband-inner">
         <div><div class="v" style="color:#C00000;">50.00%</div><div class="l">Plus Attach</div></div>
-        <div><div class="v" style="color:#C00000;">Below</div><div class="l">vs 80% Target</div></div>
+        <div><div class="v" style="color:#C00000;">Below</div><div class="l">vs 65% Goal</div></div>
         <div><div class="v">75</div><div class="l">Plus Units</div></div>
         <div><div class="v">$3,000</div><div class="l">XM+ Payout MTD</div></div>
       </div>
     </div>
   </div>
-
-  <div class="table-scroll"><table>
+<div class="table-scroll"><table>
     <thead><tr>
       <th style="text-align:left;padding-left:8px;">Rep</th><th>RGUs</th><th>% to Goal</th><th class="trend-col">Trend %</th><th>Internet</th><th>TV</th><th>Total Mobile</th><th>Tablets</th><th class="xmplus-col">XM+ Units</th><th class="xmplus-col">XM+ Attach %</th><th class="xmplus-col">XM+ Earned</th><th>ACC</th><th class="comm-col">Commissions</th>
     </tr></thead>
@@ -229,7 +296,6 @@
       <td class="rep-name">STORE TOTAL</td><td>266</td><td>34.95% (of 761)</td><td class="trend-col">120.4%</td><td>74</td><td>14</td><td>174</td><td>24</td><td class="xmplus-col">75</td><td class="xmplus-col flag-cell">50.00%</td><td class="xmplus-col">$3,000</td><td>$2,224.43</td><td class="comm-col">$7,000.16</td>
     </tr></tfoot>
   </table></div>
-
   <div class="footer-note" style="text-align:left; margin-bottom:4px; margin-top:2px; color:#1E7E34; background:#EAFBEF; border:1px solid #1E7E34; border-radius:4px; padding:3px 8px;"><b>✓ Clean reconciliation again.</b> Every rep-level field ties out exactly to the store total.</div>
 
   <div class="footer-note" style="text-align:left; margin-bottom:4px; margin-top:2px; color:#B8860B; background:#FFF8E1; border:1px solid #E0C068; border-radius:4px; padding:3px 8px;"><b>⌚ Wearables (goal 4 per rep): store 9, market high.</b> Kevin 2 · Justin 2 · Kenneth 1 · Brianna 1 · Ashton 1 · Albert 1 · Nancy 1 · De-Jon, Andrew, Daisy, Jayme 0.</div>
@@ -242,7 +308,7 @@
     <b>NPS recovered to 89.2%</b> (90% target is within reach) and <b>XM+ Attach is 50.00%</b> against 65%. Elk Grove (121.5%) passed us on trend — Sunrise is now #5 at 120.4%.
   </div>
 
-  <div class="table-scroll"><table>
+<div class="table-scroll"><table>
     <thead><tr>
       <th>Rank</th><th style="text-align:left;padding-left:8px;">Store</th><th>RGU Target</th><th>Activated RGU</th><th>Trend %</th><th>Traffic</th><th>Conv %</th><th>TV</th><th>HSI→TV</th><th>Voice</th><th>Tablets</th><th>Wearables</th><th>XM+ Attach</th><th>Accessory</th>
     </tr></thead>
@@ -257,9 +323,7 @@
       <tr><td>8</td><td class="rep-name">Florin Towne Center [59095]</td><td>396</td><td>128</td><td>111.3%</td><td>1046</td><td>12.24%</td><td>8</td><td>17.02%</td><td>0</td><td>3</td><td>2</td><td class="flag-cell">45.71%</td><td>$334.88</td></tr>
     </tbody>
   </table></div>
-
   <div class="footer-note" style="text-align:left; margin-bottom:2px;"><b>Sunrise Plaza is #5 of 8 on Day 9</b> (120.4% — Elk Grove moved ahead at 121.5%, Rancho Cordova is next at 118.1%) and leads the market in tablets, wearables and accessories. <i>HSI→TV is calculated as TV ÷ Internet (not in this report); it matched the report exactly on earlier pulls.</i></div>
-
   <div class="signals">
     <div class="signal green"><span class="tag">✓ Win</span>Store RGUs jumped 33 to 266 (34.95% of target). Albert +7, Kenneth +5 (now 33 with 94.74% XM+ Attach), Ashton +4. NPS climbed back to 89.2%. Reconciliation is clean.</div>
     <div class="signal amber"><span class="tag">⚠ Watch</span>XM+ (Plus) Attach is 50.00% (down from 50.38%) vs. 65%; only Kenneth (94.74%) and Nancy (80%) are over the line. Justin (28.57%), De-Jon (30%) and Brianna (30.77%) have the most room.</div>
@@ -268,37 +332,54 @@
   </div>
 </div>
 
-<!-- ============ PAGE 2 ============ -->
+<!-- ============ PAGE 3 ============ -->
 <div class="page">
-  <div class="header">
-    <div><h1 style="font-size:18px;">Promotions & Sales Tools</h1><div class="sub">Bridge Xfinity #59010 — October 9, 2026 (MTD 10/1-10/9)</div></div>
-  </div>
+  <div class="header"><div><h1 style="font-size:18px;">Daily Huddle Board — Game Plan</h1><div class="sub">Bridge Xfinity Store #59010 — Sunrise Plaza</div></div><div class="date-box"><div class="big" style="font-size:13px;">October 9, 2026 (MTD 10/1-10/9)</div></div></div>
 
-  <div class="page2-cols">
-    <div class="page2-col">
-      <h2>Mobile Deals</h2>
-      <div class="promo-item"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#tabletandsmartwatch" target="_blank">Diamond — $300 off Apple, Samsung, Google smartwatches</a></b> <span class="dates">(thru 10/30)</span></div>
-      <div class="promo-item"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#freeline" target="_blank">Waived $25 line activation fee for new XM customer</a></b> <span class="dates">(thru 10/30)</span></div>
-      <div class="promo-item"><b>Always On — Free line deal</b> <span class="dates">(ongoing)</span></div>
+  <div class="section-band" id="plan"><span class="num">4</span><div><div class="st">Game Plan</div><div class="ss">What we do between now and month end — 22 days left (10/10–10/31)</div></div></div>
 
-      <div style="background:#F3EEFB; border:1px solid #6E2C91; border-radius:6px; padding:6px 10px; font-size:9px; margin-top:8px; line-height:1.4;">
-        <b style="color:#6E2C91; text-transform:uppercase; font-size:9px; letter-spacing:.2px;">🧹 Cleaning Rotation — Next Week (10/12–10/18, Week 4 of 5)</b>
-        <table style="width:100%; border-collapse:collapse; margin-top:4px; font-size:8.5px;">
-          <tr style="font-weight:700; border-bottom:1px solid #D9C7EC;"><td>Zone</td><td>Assigned</td></tr>
-          <tr><td>A — Front &amp; Windows</td><td>Ashton &amp; Brianna</td></tr>
-          <tr><td>B — Sales Floor</td><td>Kevin &amp; Daisy</td></tr>
-          <tr><td>C — Register Area</td><td>Kenneth, Justin &amp; Nancy</td></tr>
-          <tr><td>D — Back Room</td><td>De-Jon &amp; Andrew</td></tr>
-          <tr><td>E — Restroom &amp; Supply</td><td>Albert &amp; Jayme</td></tr>
-        </table>
-        <div style="margin-top:4px; font-size:7.5px;">Full task checklists &amp; 5-week schedule: <a href="https://claude.ai/artifact/SDrzApSmTQHCg9NvVd3Q9Z" target="_blank">cleaning rotation page</a></div>
+  <div class="gp-grid">
+    <div>
+      <div class="sub-title">Store checkpoints — where we need to be</div>
+      <div class="table-scroll"><table>
+        <thead><tr><th style="text-align:left;">By end of</th><th>RGUs</th><th>XM+ Attach</th><th>TV</th><th>Tablets</th><th>Wearables</th><th>ACC needed</th></tr></thead>
+        <tbody>
+          <tr class="highlight-store"><td class="rep-name">Today (Day 9)</td><td>266</td><td>50%</td><td>14</td><td>24</td><td>9</td><td>—</td></tr>
+      <tr><td class="rep-name">Sun 10/11</td><td>311</td><td>54%</td><td>17</td><td>30</td><td>12</td><td>$265</td></tr>
+      <tr><td class="rep-name">Sun 10/18</td><td>468</td><td>61%</td><td>26</td><td>50</td><td>23</td><td>$1,191</td></tr>
+      <tr><td class="rep-name">Sun 10/25</td><td>626</td><td>64%</td><td>36</td><td>71</td><td>34</td><td>$2,117</td></tr>
+      <tr><td class="rep-name">Sat 10/31 — month end</td><td>761</td><td>65%</td><td>44</td><td>88</td><td>44</td><td>$2,910</td></tr>
+        </tbody>
+      </table></div>
+      <div style="font-size:8.5px; color:#555; margin-bottom:5px;">Weekly pace needed: about <b>158 RGUs</b>, <b>10 TVs</b>, <b>20 tablets</b>, <b>11 wearables</b> a week, with <b>~71% XM+ Attach on every remaining mobile-only sale</b>. Targets are the store minimums spread evenly (761 RGUs, 44 TVs, 88 tablets, 44 wearables) and are cumulative; ACC needed is the total gap to $450 per rep.</div>
+      <div class="catchup-box" style="background:#F3EEFB; border:1px solid #6E2C91; margin-top:0;">
+        <b style="color:#6E2C91;">The play call — every interaction</b><br>
+        • <b>Internet → TV:</b> ask for TV with every Internet sale (store attach is 18.9%).<br>
+        • <b>Every mobile line → Plus first</b>, Select as the step-down. Lead with Plus for the $40 payout.<br>
+        • <b>Every walk-in → Internet + tablet + XM</b> (the play call, about 1 RGU an hour).<br>
+        • <b>Every device → accessory + a watch offer.</b> Scrappy: keep Internet-to-XM at 1:2 or better.<br>
+        <b>Individual minimums (full month):</b> 75 RGUs · 4 TVs · 40 XM Plus · 65% XM+ Attach · $450 ACC · 4 Wearables · 8 Tablets · 90% NPS
       </div>
     </div>
-    <div class="page2-col">
-      <h2>Sales Tools & Catch-Up Math</h2>
-      <div class="promo-item"><b>Bundle Tip:</b> Lead with Plus tier every mobile convo — fastest path to XM+ Attach + $40 payout.</div>
-      <div class="promo-item"><b>Trade-In Tip:</b> Samsung trade-ins carry the biggest Plus Up bump ($450) — confirm eligibility early.</div>
-
+    <div>
+      <div class="sub-title">Individual game plan — what each rep needs from here</div>
+      <div class="table-scroll"><table>
+        <thead><tr><th style="text-align:left;">Rep</th><th>RGUs / day</th><th>Plus rate on rest</th><th>TV to 4</th><th>Tablets to 8</th><th>Watches to 4</th><th>ACC to $450</th></tr></thead>
+        <tbody>
+      <tr><td class="rep-name">Kenneth Nguyen</td><td>1.9 <span class="mut">(pace 3.7)</span></td><td>53%</td><td class="flag-cell">2</td><td class="flag-cell">3</td><td class="flag-cell">3</td><td class="flag-cell">$410</td></tr>
+      <tr><td class="rep-name">Brianna Lewis</td><td>2.0 <span class="mut">(pace 3.4)</span></td><td>79%</td><td class="flag-cell">1</td><td class="flag-cell">1</td><td class="flag-cell">3</td><td class="flag-cell">$450</td></tr>
+      <tr><td class="rep-name">De-Jon Alexander</td><td>2.1 <span class="mut">(pace 3.2)</span></td><td>79%</td><td class="flag-cell">4</td><td class="flag-cell">8</td><td class="flag-cell">4</td><td class="flag-cell">$130</td></tr>
+      <tr><td class="rep-name">Kevin Nguyen</td><td>2.1 <span class="mut">(pace 3.2)</span></td><td>77%</td><td class="flag-cell">3</td><td class="flag-cell">7</td><td class="flag-cell">2</td><td>$0</td></tr>
+      <tr><td class="rep-name">Daisy Ingraham</td><td>2.2 <span class="mut">(pace 2.9)</span></td><td>71%</td><td class="flag-cell">2</td><td class="flag-cell">6</td><td class="flag-cell">4</td><td class="flag-cell">$335</td></tr>
+      <tr><td class="rep-name">Ashton Wilson</td><td>2.3 <span class="mut">(pace 2.8)</span></td><td>66%</td><td class="flag-cell">2</td><td class="flag-cell">7</td><td class="flag-cell">3</td><td class="flag-cell">$450</td></tr>
+      <tr><td class="rep-name">Andrew Voong</td><td>2.3 <span class="mut">(pace 2.7)</span></td><td>71%</td><td class="flag-cell">2</td><td class="flag-cell">6</td><td class="flag-cell">4</td><td class="flag-cell">$410</td></tr>
+      <tr><td class="rep-name">Justin Cisneros</td><td>2.3 <span class="mut">(pace 2.7)</span></td><td>80%</td><td class="flag-cell">3</td><td class="flag-cell">4</td><td class="flag-cell">2</td><td class="flag-cell">$190</td></tr>
+      <tr><td class="rep-name">Jayme Cadenas-Lara</td><td class="flag-cell">2.5 <span class="mut">(pace 2.1)</span></td><td>70%</td><td class="flag-cell">4</td><td class="flag-cell">8</td><td class="flag-cell">4</td><td class="flag-cell">$340</td></tr>
+      <tr><td class="rep-name">Albert Thiel</td><td class="flag-cell">2.6 <span class="mut">(pace 1.9)</span></td><td>69%</td><td class="flag-cell">3</td><td class="flag-cell">8</td><td class="flag-cell">3</td><td>$0</td></tr>
+      <tr><td class="rep-name">Nancy Garcia</td><td class="flag-cell">3.0 <span class="mut">(pace 1.0)</span></td><td>59%</td><td class="flag-cell">4</td><td class="flag-cell">6</td><td class="flag-cell">3</td><td class="flag-cell">$195</td></tr>
+        </tbody>
+      </table></div>
+      <div style="font-size:8px; color:#555; margin-bottom:5px;">RGUs/day = (75 − current) ÷ 22 days, shown next to each rep's current pace. "Plus rate on rest" is the XM+ attach each rep must hit on the mobile-only sales still to come (at their current volume) to finish at 65%. Red = behind pace or below minimum.</div>
       <div style="background:#EEF6EF; border:1px solid #8FBF9F; border-radius:5px; padding:5px 8px; font-size:8px; margin-top:5px; line-height:1.35;">
         <b style="color:#1E7E34; text-transform:uppercase; font-size:8.5px; letter-spacing:.2px;">🏈 NFL/CFB TV Tiers — Lead With This</b>
         <div class="table-scroll"><table style="width:100%; border-collapse:collapse; margin-top:3px; font-size:7.5px;">
@@ -310,24 +391,12 @@
           <tr><td>+ More Sports/Ent</td><td>$9.99</td><td>BTN (out-of-state), NFL RedZone</td></tr>
         </table></div>
       </div>
-
-      <div class="catchup-box" style="background:#F3EEFB; border:1px solid #6E2C91;">
-        <b style="color:#6E2C91;">October Goals — BMOR Month (Day 9)</b><br>
-        <b>Day 9 MTD: 266 RGUs store-wide, 50.00% XM+ Attach, NPS 89.2%</b> — XM+ attach (vs 65%) is the gap to close; NPS is within 1 point of the 90% goal.<br>
-        <b>BMOR operational standards (store-wide):</b> inventory counts solid · overtime ≤2% · zero Disco/Reco integrity issues · No Usage under 10%.<br>
-        <b>Individual sales minimums (full month):</b> 75 RGUs · 4 TVs · 40 XM (Plus units) · 65% XM+ Attach · $450 ACC · 4 Wearables · 8 Tablets · 90% individual NPS.
-      </div>
-
-      <div style="background:#FDECEA; border:1px solid #C00000; border-radius:6px; padding:8px 10px; font-size:11px; margin-top:8px;">
-        <b style="color:#C00000; text-transform:uppercase; font-size:10px; letter-spacing:.3px;">⚠ Team Alert — Pricing Check</b><br>
-        Some customers are showing up with a <b>$50/mo, 5-year Gig speed plan</b>. Flag this to Shawn before finalizing if you see it — confirm eligibility before completing the sale.
-      </div>
+      <div style="margin-top:5px;">      <div class="promo-item"><b>Bundle Tip:</b> Lead with Plus tier every mobile convo — fastest path to XM+ Attach + $40 payout.</div>
+      <div class="promo-item"><b>Trade-In Tip:</b> Samsung trade-ins carry the biggest Plus Up bump ($450) — confirm eligibility early.</div>
+</div>
     </div>
   </div>
-
-  <div class="footer-note">
-    XM+ Payout = XM+ Units × $40 &nbsp;|&nbsp; XM+ Attach % = MTD Mobile Plus Attach % &nbsp;|&nbsp; Tablets = Active Mobile & Tablet − MTD Mobile Only RGU &nbsp;|&nbsp; October individual goal: 75 RGUs/rep minimum (BMOR month — see full criteria above)
-  </div>
+  <div class="footer-note">XM+ Payout = XM+ Units × $40 &nbsp;|&nbsp; XM+ Attach % = Plus ÷ Mobile Only &nbsp;|&nbsp; Tablets = Mobile &amp; Tablet − Mobile Only &nbsp;|&nbsp; Day 9 of 31 &nbsp;|&nbsp; 22 days remaining</div>
 </div>
 
 </body>
