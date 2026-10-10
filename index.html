@@ -174,6 +174,8 @@
   .ops-card.alert { background:#FDECEA; border-color:#C00000; }
   .ops-card.alert h3 { color:#C00000; border-color:#C00000; }
   .newpromo { background:#FFF8E1; border:1px dashed #E8A800; border-radius:4px; padding:3px 6px; margin-top:5px; font-size:8.5px; color:#6b5200; }
+  .deals { font-size:8.5px; margin:0; } .deals thead th { text-align:left; padding:2px 4px; } .deals td { text-align:left; vertical-align:top; padding:2px 4px; }
+  .deals td, .deals th { white-space:normal !important; }
   .mut { color:#888; font-weight:400; font-size:.85em; }
   .nps-wide { display:flex; gap:14px; align-items:center; border:1px solid #ddd; border-radius:6px; padding:6px 10px; }
   .nps-wide .big { font-size:34px; font-weight:800; color:#C00000; line-height:1; text-align:center; }
@@ -213,14 +215,40 @@
   <div class="section-band" id="ops"><span class="num">1</span><div><div class="st">Operations &amp; Updates</div><div class="ss">Start here — promos, alerts, standards, cleaning</div></div></div>
 
   <div class="ops-grid">
-    <div class="ops-card">
-      <h3>📣 Promos &amp; Deals</h3>
+    <div class="ops-card" style="flex:1.6;">
+      <h3>📣 Promos &amp; Deals <span class="mut">— new offers started 10/9</span></h3>
+      <table class="deals">
+        <thead><tr><th>Offer</th><th>Apple · Google · Moto</th><th>Samsung</th></tr></thead>
+        <tbody>
+          <tr><td class="rep-name"><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#TIPSdeals" target="_blank">TIPs (trade-in)</a></td><td><b>New lines</b> up to $930<br><b>Upgrades</b> up to $500</td><td><b>New lines</b> up to $1,200<br><b>Upgrades</b> up to $700</td></tr>
+          <tr><td class="rep-name"><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#flagship" target="_blank">Flagship (no trade-in)</a></td><td><b>New lines</b> $400 off<br><b>Upgrades</b> $200 off</td><td><b>New lines</b> $500 off<br><b>Upgrades</b> $300 off</td></tr>
+          <tr><td class="rep-name"><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#anytime" target="_blank">Upgrade anytime</a></td><td>$200 off</td><td>$300 off</td></tr>
+        </tbody>
+      </table>
+      <div class="mut" style="margin:2px 0 4px;">All phone offers run through <b>11/10</b> (Samsung new-line offers began 8/26).</div>
+      <div class="promo-item expiring"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#tabletandsmartwatch" target="_blank">$300 off Samsung Galaxy Tab S12+</a></b> <span class="dates">(10/7–10/20) <span class="warn">— ends 10/20, push tablets now</span></span></div>
       <div class="promo-item"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#tabletandsmartwatch" target="_blank">Diamond — $300 off Apple, Samsung, Google smartwatches</a></b> <span class="dates">(thru 10/30)</span></div>
       <div class="promo-item"><b><a href="https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377#freeline" target="_blank">Waived $25 line activation fee for new XM customer</a></b> <span class="dates">(thru 10/30)</span></div>
       <div class="promo-item"><b>Always On — Free line deal</b> <span class="dates">(ongoing)</span></div>
-
-      <div class="newpromo">🆕 <b>New promos &amp; cellular watch changes</b> — being added to this board. Ask Shawn for details in the meantime.</div>
     </div>
+    <div class="ops-card" style="flex:1.2; background:#EEF6EF; border-color:#1E7E34;">
+      <h3 style="color:#1E7E34; border-color:#1E7E34;">⌚ New: Smartwatch Data Plan</h3>
+      <b>$10/mo · $0 setup/activation fee · 5 GB talk &amp; text · own phone number.</b> New lines or BYOD, and Xfinity Mobile Care (XMC) eligible.
+      <table class="deals" style="margin-top:3px;">
+        <thead><tr><th></th><th>Standalone watch<br>(Data Plan)</th><th>Paired watch<br>(Smartwatch fee)</th></tr></thead>
+        <tbody>
+          <tr><td class="rep-name">Cost</td><td>$10/mo</td><td>$10/mo</td></tr>
+          <tr><td class="rep-name">Own number</td><td>✓</td><td>✗</td></tr>
+          <tr><td class="rep-name">Data</td><td>5 GB, then 5/2 Mbps</td><td>Shares paired phone's data</td></tr>
+          <tr><td class="rep-name">Watches</td><td>Select Apple &amp; Samsung (<b>Google not yet</b>)</td><td>Select Apple, Samsung &amp; Google</td></tr>
+          <tr><td class="rep-name">Apple needs</td><td>iPhone 11+ on OS 26.1+</td><td>iPhone 6s+ on iOS 14+</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:3px;"><b>Who to pitch:</b> parents of young kids (talk/text without a full phone), workout/errand users who leave the phone home, and anyone who wants data on the watch.</div>
+      <div class="mut" style="margin-top:2px;">No international roaming, Global Travel Pass or Mexico/Canada pass on watches (pay-as-you-go $0.30/MB on the paired line).</div>
+    </div>
+  </div>
+  <div class="ops-grid" style="margin-top:6px;">
     <div class="ops-card alert">
       <h3>⚠ Team Alert — Pricing Check</h3>
       Some customers are showing up with a <b>$50/mo, 5-year Gig speed plan</b>. Flag this to Shawn before finalizing if you see it — confirm eligibility before completing the sale.
@@ -357,7 +385,7 @@
         • <b>Internet → TV:</b> ask for TV with every Internet sale (store attach is 18.9%).<br>
         • <b>Every mobile line → Plus first</b>, Select as the step-down. Lead with Plus for the $40 payout.<br>
         • <b>Every walk-in → Internet + tablet + XM</b> (the play call, about 1 RGU an hour).<br>
-        • <b>Every device → accessory + a watch offer.</b> Scrappy: keep Internet-to-XM at 1:2 or better.<br>
+        • <b>Every device → accessory + a watch</b> (Smartwatch Data Plan: $10/mo, $0 activation). Scrappy: keep Internet-to-XM at 1:2 or better.<br>
         <b>Individual minimums (full month):</b> 75 RGUs · 4 TVs · 40 XM Plus · 65% XM+ Attach · $450 ACC · 4 Wearables · 8 Tablets · 90% NPS
       </div>
     </div>
@@ -391,9 +419,7 @@
           <tr><td>+ More Sports/Ent</td><td>$9.99</td><td>BTN (out-of-state), NFL RedZone</td></tr>
         </table></div>
       </div>
-      <div style="margin-top:5px;">      <div class="promo-item"><b>Bundle Tip:</b> Lead with Plus tier every mobile convo — fastest path to XM+ Attach + $40 payout.</div>
-      <div class="promo-item"><b>Trade-In Tip:</b> Samsung trade-ins carry the biggest Plus Up bump ($450) — confirm eligibility early.</div>
-</div>
+      <div style="margin-top:5px;"><div class="promo-item"><b>Bundle Tip:</b> Lead with Plus tier every mobile convo — fastest path to XM+ Attach + $40 payout.</div><div class="promo-item"><b>Trade-In Tip:</b> Samsung new lines carry the biggest TIPs (up to $1,200) — confirm trade-in eligibility early. Flagship offers need no trade-in.</div><div class="promo-item"><b>Watch Tip:</b> Smartwatch Data Plan is $10/mo with $0 activation — pitch it to parents and workout/errand customers, and every watch counts toward the 4-wearable goal.</div></div>
     </div>
   </div>
   <div class="footer-note">XM+ Payout = XM+ Units × $40 &nbsp;|&nbsp; XM+ Attach % = Plus ÷ Mobile Only &nbsp;|&nbsp; Tablets = Mobile &amp; Tablet − Mobile Only &nbsp;|&nbsp; Day 9 of 31 &nbsp;|&nbsp; 22 days remaining</div>
