@@ -74,7 +74,7 @@ def build(state,pub,out):
     MKT_SENT=f'<div class="card" style="margin-top:10px"><b>Market: Sunrise is #{rank} of {len(mk_rows)}</b> on trend ({mk_rows[rank-1]["t"]:.1f}%).'+(f' Next up: {mk_rows[rank-2]["name"]} at {mk_rows[rank-2]["t"]:.1f}%.' if rank>1 else '')
     NPS_STYLE='' if nps>=90 else ' style="color:var(--r)"'
     NPS_SCORE=nps
-    NPS_TEXT='<b>'+('Still under our 90 goal.' if nps<90 else 'At goal — keep it there.')+f'</b> {state["nps"]["59010"][0]} responses this month. <b>Ask every customer for the survey</b> and set the expectation of a 9–10 experience before they leave.'
+    NPS_TEXT='<b>'+('Still under our 90 goal.' if nps<90 else 'At goal — keep it there.')+f'</b> {state["nps"]["59010"][0]} responses this month. <b>Ask every customer for the survey</b> and set the expectation of a 9–10 experience before they leave. <br><a href="nps/"><b>Open the NPS Focus page: back to 86% by Saturday →</b></a>'
     CLEAN=clean_html(pub)
     TAB_LI='<li>⏰ <b>$300 off Galaxy Tab S12+ ends 10/20</b></li>' if pub<=dt.date(2026,10,20) else ''
     html=f'''<!DOCTYPE html>
