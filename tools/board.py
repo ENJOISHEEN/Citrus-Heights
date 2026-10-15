@@ -1,6 +1,7 @@
 """Huddle board pipeline.
   python3 board.py seed  <stack_ranking.xlsx> <state.json>          # exact MTD from a full file (re-sync)
   python3 board.py update <state.json> <dump.txt> <nps_email.txt> <data_date YYYY-MM-DD>   # add one day's daily sheets
+  python3 board.py resync <state.json> <store_mtd.tsv> <employee_mtd.tsv>   # exact MTD from rows pasted out of the workbook (Store/Employee MTD tabs)
   python3 build_board.py <state.json> <publish_date YYYY-MM-DD> <out.html>
 """
 import sys,json,re,datetime as dt
@@ -74,11 +75,47 @@ def update(sp,dump,npsf,ddate):
     st['reps'].sort(key=lambda x:-x['rgu'])
     chk=sum(r['rgu'] for r in st['reps'])-st['store']['rgu']
     if chk: notes.append(f'rep RGU sum differs from store by {chk}')
+    notes.append('targets/rep totals not verified since last resync; paste MTD rows and run board.py resync')
     nps=parse_nps(open(npsf).read())
     if STORE not in nps: sys.exit('NPS email missing Sunrise')
     st['nps']={c:list(v) for c,v in nps.items()}
     st['date']=ddate
     json.dump(st,open(sp,'w'),indent=1); print('updated to',ddate,'store RGU',st['store']['rgu'],'|',notes)
+def resync(sp,store_tsv,emp_tsv):
+    """Overwrite running totals with exact MTD numbers pasted from the workbook (tab-separated rows, no header).
+    Store rows: Store, RGU Target, Activated RGU, Trend%, Traffic, Conv%, Internet, IntConv%, TV, Voice, Home, Mobile&Tablet, M&T Conv%, Mobile Only, MO Conv%, Select, Sel%, Plus, Plus%, Legacy, Leg%, Wearables, Accessory.
+    Employee rows: Employee, RGU, Trend%, Internet, TV, Voice, Home, Mobile&Tablet, Mobile Only, Select, Sel%, Plus, Plus%, Legacy, Leg%, Wearables, Accessory."""
+    st=json.load(open(sp))
+    n=lambda x:float(str(x).replace('$','').replace(',','').replace('%','').strip())
+    SK=['target','rgu',None,'traffic',None,'int',None,'tv','voice','home','mt',None,'mo',None,'sel',None,'plus',None,'leg',None,'wear','acc']
+    RK=['rgu',None,'int','tv','voice','home','mt','mo','sel',None,'plus',None,'leg',None,'wear','acc']
+    ch=[]
+    for l in open(store_tsv):
+        c=l.rstrip('\r\n').split('\t'); m=re.match(r'\[(\d+)\]',c[0])
+        if not m or m.group(1) not in st['market']: continue
+        mk=st['market'][m.group(1)]
+        for k,v in zip(SK,c[1:]):
+            if k:
+                v=round(n(v),2) if k=='acc' else int(n(v))
+                if mk[k]!=v: ch.append(f"{mk['name']} {k} {mk[k]}->{v}"); mk[k]=v
+    s=st['market'][STORE]
+    if s['target']!=st['target']:
+        st['target']=s['target']
+        if st['plan_history'][-1]!=s['target']: st['plan_history'].append(s['target'])
+    st['store']={**st['store'],**{k:s[k] for k in st['store']}}
+    reps={r['name']:r for r in st['reps']}
+    for l in open(emp_tsv):
+        c=l.rstrip('\r\n').split('\t')
+        if c[0] not in reps: ch.append('NEW REP '+c[0]); reps[c[0]]=dict(name=c[0],daily=0); st['reps'].append(reps[c[0]])
+        r=reps[c[0]]
+        for k,v in zip(RK,c[1:]):
+            if k:
+                v=round(n(v),2) if k=='acc' else int(n(v))
+                if r.get(k)!=v: ch.append(f"{c[0]} {k} {r.get(k)}->{v}"); r[k]=v
+    st['reps'].sort(key=lambda x:-x['rgu'])
+    chk=sum(r['rgu'] for r in st['reps'])-st['store']['rgu']
+    json.dump(st,open(sp,'w'),indent=1); print('resynced',st['date'],len(ch),'changes'); print('\n'.join(ch)); print('rep RGU sum vs store:',chk)
 if __name__=='__main__':
     if sys.argv[1]=='seed': seed(sys.argv[2],sys.argv[3])
+    elif sys.argv[1]=='resync': resync(*sys.argv[2:5])
     elif sys.argv[1]=='update': update(*sys.argv[2:6])

@@ -1,12 +1,13 @@
 {
  "date": "2026-10-14",
- "target": 720,
+ "target": 711,
  "plan_history": [
   740,
   750,
   761,
   724,
-  720
+  720,
+  711
  ],
  "store": {
   "rgu": 376,
@@ -63,7 +64,7 @@
    "tv": 4,
    "voice": 0,
    "home": 0,
-   "mt": 25,
+   "mt": 26,
    "mo": 25,
    "sel": 11,
    "plus": 11,
@@ -71,22 +72,6 @@
    "wear": 2,
    "acc": 624.8,
    "daily": 4
-  },
-  {
-   "name": "Daisy Ingraham",
-   "rgu": 39,
-   "int": 18,
-   "tv": 3,
-   "voice": 0,
-   "home": 0,
-   "mt": 18,
-   "mo": 13,
-   "sel": 6,
-   "plus": 7,
-   "leg": 0,
-   "wear": 0,
-   "acc": 129.96,
-   "daily": 0
   },
   {
    "name": "Kenneth Nguyen",
@@ -103,6 +88,22 @@
    "wear": 1,
    "acc": 39.99,
    "daily": 2
+  },
+  {
+   "name": "Daisy Ingraham",
+   "rgu": 37,
+   "int": 16,
+   "tv": 3,
+   "voice": 0,
+   "home": 0,
+   "mt": 18,
+   "mo": 13,
+   "sel": 6,
+   "plus": 7,
+   "leg": 0,
+   "wear": 0,
+   "acc": 129.96,
+   "daily": 0
   },
   {
    "name": "Ashton Wilson",
@@ -154,14 +155,14 @@
   },
   {
    "name": "Albert Thiel",
-   "rgu": 29,
+   "rgu": 28,
    "int": 7,
    "tv": 1,
    "voice": 0,
    "home": 1,
-   "mt": 20,
-   "mo": 20,
-   "sel": 8,
+   "mt": 19,
+   "mo": 19,
+   "sel": 7,
    "plus": 10,
    "leg": 2,
    "wear": 2,
@@ -170,14 +171,14 @@
   },
   {
    "name": "Jayme Cadenas-Lara",
-   "rgu": 27,
+   "rgu": 28,
    "int": 10,
    "tv": 1,
    "voice": 0,
    "home": 0,
-   "mt": 16,
-   "mo": 16,
-   "sel": 8,
+   "mt": 17,
+   "mo": 17,
+   "sel": 9,
    "plus": 8,
    "leg": 0,
    "wear": 0,
@@ -204,7 +205,7 @@
  "market": {
   "59041": {
    "name": "Lodi",
-   "target": 174,
+   "target": 177,
    "rgu": 160,
    "traffic": 726,
    "int": 36,
@@ -221,7 +222,7 @@
   },
   "59083": {
    "name": "Antelope",
-   "target": 392,
+   "target": 394,
    "rgu": 245,
    "traffic": 1617,
    "int": 55,
@@ -255,7 +256,7 @@
   },
   "59007": {
    "name": "Downtown Sacramento",
-   "target": 311,
+   "target": 305,
    "rgu": 161,
    "traffic": 1251,
    "int": 73,
@@ -272,7 +273,7 @@
   },
   "59005": {
    "name": "Elk Grove",
-   "target": 948,
+   "target": 924,
    "rgu": 497,
    "traffic": 3793,
    "int": 163,
@@ -289,7 +290,7 @@
   },
   "59010": {
    "name": "Sunrise Plaza",
-   "target": 720,
+   "target": 711,
    "rgu": 376,
    "traffic": 2920,
    "int": 108,
@@ -306,7 +307,7 @@
   },
   "59004": {
    "name": "Rancho Cordova",
-   "target": 510,
+   "target": 499,
    "rgu": 240,
    "traffic": 2048,
    "int": 89,
@@ -323,9 +324,9 @@
   },
   "59095": {
    "name": "Florin Towne Center",
-   "target": 392,
+   "target": 375,
    "rgu": 171,
-   "traffic": 1558,
+   "traffic": 1538,
    "int": 64,
    "tv": 10,
    "voice": 0,
