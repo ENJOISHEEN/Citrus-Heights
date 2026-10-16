@@ -128,12 +128,15 @@ def build(state,pub,out):
     <section class="sec" id="ops"><div class="band"><span class="n">1</span><div><b>Operations &amp; Updates</b><span class="sub">Start here</span></div></div>
     <div class="grid">
     <div class="card"><h3>📣 New phone deals — through 11/10</h3><ul>
+    <li><b>🆕 iPhone Duo preorder (10/16–11/10): up to $1,000 off.</b> Customer must <b>add a new line with Plus or Premium + a qualifying trade-in</b>. Diamond members get up to $1,000 off on upgrades. <b>Preorders arrive on time — no delay, no backorder</b>, so sell it with confidence.</li>
     <li><b>Apple · Google · Moto:</b> up to $930 off new lines, up to $500 off upgrades (trade-in) — or $400 / $200 off with no trade-in</li>
     <li><b>Samsung:</b> up to $1,200 off new lines, up to $700 off upgrades (trade-in) — or $500 / $300 off with no trade-in</li>
     <li><b>Upgrade anytime:</b> $200 off Apple/Google/Moto · $300 off Samsung</li>
     {TAB_LI}
+    <li><b>$200 Virtual Visa gift card</b> when a customer adds 2+ mobile lines (retail only, 10/16–11/2)</li>
     <li>Diamond $300 off watches &amp; waived $25 activation (thru 10/30) · Always On free line</li></ul>
     <details><summary>Show deal table &amp; links</summary><div class="tw"><table><thead><tr><th>Offer</th><th>Apple · Google · Moto</th><th>Samsung</th></tr></thead><tbody>
+    <tr><td class="nm">iPhone Duo preorder (10/16–11/10)</td><td colspan="2">New line (Plus/Premium + trade-in): up to $1,000 · Diamond upgrade: up to $1,000</td></tr>
     <tr><td class="nm"><a href="{L}#TIPSdeals">TIPs (trade-in)</a></td><td>New up to $930 · Upgrade up to $500</td><td>New up to $1,200 · Upgrade up to $700</td></tr>
     <tr><td class="nm"><a href="{L}#flagship">Flagship (no trade-in)</a></td><td>New $400 · Upgrade $200</td><td>New $500 · Upgrade $300</td></tr>
     <tr><td class="nm"><a href="{L}#anytime">Upgrade anytime</a></td><td>$200 off</td><td>$300 off</td></tr></tbody></table></div></details></div>
