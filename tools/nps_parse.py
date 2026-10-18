@@ -5,7 +5,7 @@ def parse_nps(raw):
     t=re.sub(r'<[^>]+>',' ',raw); t=t.replace('\\r',' ').replace('\\n',' '); t=re.sub(r'\s+',' ',t)
     i=t.find('STORE NPS:'); t=t[i:] if i>=0 else t
     out={}
-    for m in re.finditer(r'(\d{5}) - .+?\((?:XF|BP)\) (\d+) ([\d.]+)',t):
+    for m in re.finditer(r'(\d{5}) - (?:(?!\d{5} - ).)+?\((?:XF|BP)\) (\d+) ([\d.]+)',t):
         if m.group(1) in CODES and m.group(1) not in out: out[m.group(1)]=(int(m.group(2)),float(m.group(3)))
     return out
 if __name__=='__main__':
