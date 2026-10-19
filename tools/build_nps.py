@@ -19,11 +19,12 @@ def main(sp,pub,out):
     top=rows[0]
     ydiff=sc-d['yoy']
     ytxt=(f'{abs(ydiff):.1f} pts ahead' if ydiff>=0 else f'{abs(ydiff):.1f} pts behind')
-    if reach: reality=f'<li>To reach 86 MTD we need about <b>{need} more 9–10 surveys with zero detractors</b>. At our pace (about {pace:.0f} a day) that is <b>within reach by Saturday</b> if every survey is a 9–10.</li>'
-    else: reality=f'<li>MTD is {net} net points over {n} surveys. To reach 86 MTD we need about <b>{need} more 9–10 surveys with zero detractors</b>.</li><li>At our pace (about {pace:.0f} a day, {days} days left) that is about {round(pace*days)} surveys, so <b>MTD 86 by Saturday is a stretch</b>. The win we control: <b>every survey from now on is a 9–10, and this week\'s score goes above 86</b>.</li>'
+    if reach: reality=f'<li>To reach 86 MTD we need about <b>{need} more 9–10 surveys with zero detractors</b>. At our pace (about {pace:.0f} a day) that is <b>within reach by Saturday 10/31</b> if every survey is a 9–10.</li>'
+    else: reality=f'<li>MTD is {net} net points over {n} surveys. To reach 86 MTD we need about <b>{need} more 9–10 surveys with zero detractors</b>.</li><li>At our pace (about {pace:.0f} a day, {days} days left) that is about {round(pace*days)} surveys, so <b>MTD 86 by Saturday 10/31 is a stretch</b>. The win we control: <b>every survey from now on is a 9–10, and this week\'s score goes above 86</b>.</li>'
     css=open(__file__.replace('build_nps.py','nps.css')).read()
     prevtxt=' / '.join(f'{a:g}' for a,_ in prev[-2:]); prevn=' / '.join(str(b) for _,b in prev[-2:])
     wl=d['week_labels'][cur]
+    WK_LINE=(f'Earlier weeks were {prevtxt}. <b>This week is the problem: {wk:g} on {wn} surveys.</b>' if wk<goal else f'Earlier weeks were {prevtxt}. <b>This week is {wk:g} on {wn} surveys, above 86. Keep every survey a 9–10 to hold it.</b>')
     html=f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NPS Focus — Bridge Xfinity #59010 — Back to 86% by Saturday</title>
@@ -37,11 +38,11 @@ def main(sp,pub,out):
 <div class="tile"><div class="l">Weeks before</div><div class="v">{prevtxt}</div><div class="x">{prevn} surveys</div></div></div>
 <div class="grid">
 <div class="card alert"><h3>What the numbers say</h3><ul>
-<li>Earlier weeks were {prevtxt}. <b>This week is the problem: {wk:g} on {wn} surveys.</b></li>
+<li>{WK_LINE}</li>
 <li>Only {n} surveys on {s["store"]["traffic"]:,} visits MTD — very few visits turn into surveys. <b>Pitch every customer and set the 9–10 expectation.</b></li>
 <li><b>Same period last year: {d["yoy"]} on {d["yoy_n"]} surveys.</b> We are {ytxt}, with {d["yoy_n"]-n} fewer surveys.</li>
 <li>Rank #{rk} of 8. {NAMES[top[0]]} is at {top[1][1]} — it can be done in this market.</li></ul></div>
-<div class="card green"><h3>Reality check on Saturday</h3><ul>{reality}</ul></div></div>
+<div class="card green"><h3>Reality check on 10/31</h3><ul>{reality}</ul></div></div>
 <details open><summary>Show: what MTD becomes</summary>
 <div class="tw"><table><thead><tr><th>New surveys</th><th>If all 9–10</th><th>If 90% are 9–10, rest passive</th></tr></thead><tbody>{sce}</tbody></table></div></details>
 {open(__file__.replace('build_nps.py','nps_plan.html')).read()}

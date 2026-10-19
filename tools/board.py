@@ -88,13 +88,14 @@ def resync(sp,store_tsv,emp_tsv):
     st=json.load(open(sp))
     n=lambda x:float(str(x).replace('$','').replace(',','').replace('%','').strip())
     SK=['target','rgu',None,'traffic',None,'int',None,'tv','voice','home','mt',None,'mo',None,'sel',None,'plus',None,'leg',None,'wear','acc']
+    SK2=['target','rgu',None,'traffic',None,'int',None,'tv','voice',None,'home',None,'mt',None,'mo',None,'sel',None,'plus',None,'leg',None,'wear','acc']  # newer layout adds Voice/Home conversion columns
     RK=['rgu',None,'int','tv','voice','home','mt','mo','sel',None,'plus',None,'leg',None,'wear','acc']
     ch=[]
     for l in open(store_tsv):
         c=l.rstrip('\r\n').split('\t'); m=re.match(r'\[(\d+)\]',c[0])
         if not m or m.group(1) not in st['market']: continue
         mk=st['market'][m.group(1)]
-        for k,v in zip(SK,c[1:]):
+        for k,v in zip(SK2 if len(c)-1==len(SK2) else SK,c[1:]):
             if k:
                 v=round(n(v),2) if k=='acc' else int(n(v))
                 if mk[k]!=v: ch.append(f"{mk['name']} {k} {mk[k]}->{v}"); mk[k]=v

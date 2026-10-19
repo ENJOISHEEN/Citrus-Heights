@@ -1,13 +1,14 @@
 {
  "date": "2026-10-18",
- "target": 711,
+ "target": 670,
  "plan_history": [
   740,
   750,
   761,
   724,
   720,
-  711
+  711,
+  670
  ],
  "store": {
   "rgu": 453,
@@ -205,7 +206,7 @@
  "market": {
   "59041": {
    "name": "Lodi",
-   "target": 177,
+   "target": 163,
    "rgu": 185,
    "traffic": 862,
    "int": 44,
@@ -222,7 +223,7 @@
   },
   "59083": {
    "name": "Antelope",
-   "target": 394,
+   "target": 380,
    "rgu": 302,
    "traffic": 2007,
    "int": 72,
@@ -239,7 +240,7 @@
   },
   "59112": {
    "name": "Placerville",
-   "target": 160,
+   "target": 150,
    "rgu": 96,
    "traffic": 791,
    "int": 26,
@@ -256,7 +257,7 @@
   },
   "59007": {
    "name": "Downtown Sacramento",
-   "target": 305,
+   "target": 293,
    "rgu": 198,
    "traffic": 1547,
    "int": 85,
@@ -273,7 +274,7 @@
   },
   "59005": {
    "name": "Elk Grove",
-   "target": 924,
+   "target": 893,
    "rgu": 612,
    "traffic": 4712,
    "int": 205,
@@ -290,7 +291,7 @@
   },
   "59010": {
    "name": "Sunrise Plaza",
-   "target": 711,
+   "target": 670,
    "rgu": 453,
    "traffic": 3538,
    "int": 129,
@@ -307,7 +308,7 @@
   },
   "59004": {
    "name": "Rancho Cordova",
-   "target": 499,
+   "target": 483,
    "rgu": 292,
    "traffic": 2548,
    "int": 110,
@@ -324,7 +325,7 @@
   },
   "59095": {
    "name": "Florin Towne Center",
-   "target": 375,
+   "target": 353,
    "rgu": 205,
    "traffic": 1864,
    "int": 84,
