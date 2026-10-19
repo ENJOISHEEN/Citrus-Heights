@@ -5,7 +5,7 @@ NAMES={'59041':'Lodi','59083':'Antelope','59112':'Placerville','59007':'Downtown
 def main(sp,pub,out):
     s=json.load(open(sp)); d=s['nps_detail']; pub=dt.date.fromisoformat(pub)
     n,sc=s['nps']['59010']; net=round(sc*n/100)
-    goal=86; sat=dt.date(2026,10,17); days=max((sat-pub).days+1,0)
+    goal=86; sat=dt.date(2026,10,31); days=max((sat-pub).days+1,0)
     pace=n/max(int(s['date'][-2:]),1)
     need=max(math.ceil((goal/100*n-net)/(1-goal/100)),0)
     reach=need<=pace*days
@@ -29,7 +29,7 @@ def main(sp,pub,out):
 <title>NPS Focus — Bridge Xfinity #59010 — Back to 86% by Saturday</title>
 <style>{css}</style></head><body><div class="wrap">
 <header><div><h1>NPS Focus</h1><div class="s">Bridge Xfinity #59010 · Sunrise Plaza</div></div><div class="d">{pub.strftime("%a %b %-d")}<small>Data through {s["date"][5:7].lstrip("0")}/{s["date"][8:].lstrip("0")}</small></div></header>
-<div class="goalbar">GOAL: BACK TO 86% BY SATURDAY 10/17 — EVERY CUSTOMER. EVERY TIME. NO MISSES.</div>
+<div class="goalbar">GOAL: BACK TO 86% BY SATURDAY 10/31 — EVERY CUSTOMER. EVERY TIME. NO MISSES.</div>
 <div class="tiles">
 <div class="tile"><div class="l">Month to date</div><div class="v red">{sc:g}</div><div class="x">{n} surveys</div></div>
 <div class="tile"><div class="l">Goal</div><div class="v">86</div><div class="x">{goal-sc:.1f} pts to go</div></div>
