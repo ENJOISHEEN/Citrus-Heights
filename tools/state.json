@@ -1,5 +1,5 @@
 {
- "date": "2026-10-24",
+ "date": "2026-10-25",
  "target": 670,
  "plan_history": [
   740,
@@ -11,19 +11,19 @@
   670
  ],
  "store": {
-  "rgu": 527,
-  "int": 149,
+  "rgu": 541,
+  "int": 154,
   "tv": 30,
   "voice": 1,
   "home": 2,
-  "mt": 345,
-  "mo": 304,
-  "sel": 128,
-  "plus": 174,
+  "mt": 354,
+  "mo": 311,
+  "sel": 131,
+  "plus": 178,
   "leg": 2,
   "wear": 14,
-  "acc": 4218.87,
-  "traffic": 4583
+  "acc": 4273.86,
+  "traffic": 4702
  },
  "reps": [
   {
@@ -40,28 +40,28 @@
    "leg": 1,
    "wear": 1,
    "acc": 454.88,
-   "daily": 1
+   "daily": 0
   },
   {
    "name": "Kevin Nguyen",
-   "rgu": 58,
-   "int": 16,
+   "rgu": 60,
+   "int": 17,
    "tv": 5,
    "voice": 0,
    "home": 0,
-   "mt": 37,
-   "mo": 33,
+   "mt": 38,
+   "mo": 34,
    "sel": 21,
-   "plus": 14,
+   "plus": 15,
    "leg": -2,
    "wear": 2,
    "acc": 884.74,
-   "daily": 4
+   "daily": 2
   },
   {
    "name": "Andrew Voong",
-   "rgu": 56,
-   "int": 19,
+   "rgu": 57,
+   "int": 20,
    "tv": 4,
    "voice": 0,
    "home": 1,
@@ -72,23 +72,39 @@
    "leg": 3,
    "wear": 0,
    "acc": 189.97,
-   "daily": 0
+   "daily": 1
   },
   {
    "name": "Kenneth Nguyen",
-   "rgu": 52,
+   "rgu": 54,
    "int": 10,
    "tv": 4,
    "voice": 2,
    "home": 0,
-   "mt": 36,
-   "mo": 30,
-   "sel": 3,
-   "plus": 29,
+   "mt": 38,
+   "mo": 32,
+   "sel": 4,
+   "plus": 30,
    "leg": -2,
    "wear": 1,
    "acc": 108.98,
-   "daily": 1
+   "daily": 2
+  },
+  {
+   "name": "Brianna Lewis",
+   "rgu": 53,
+   "int": 10,
+   "tv": 3,
+   "voice": 0,
+   "home": 0,
+   "mt": 40,
+   "mo": 33,
+   "sel": 15,
+   "plus": 17,
+   "leg": 1,
+   "wear": 1,
+   "acc": 144.96,
+   "daily": 4
   },
   {
    "name": "Daisy Ingraham",
@@ -103,23 +119,7 @@
    "plus": 14,
    "leg": 0,
    "wear": 2,
-   "acc": 219.94,
-   "daily": 1
-  },
-  {
-   "name": "Brianna Lewis",
-   "rgu": 49,
-   "int": 9,
-   "tv": 3,
-   "voice": 0,
-   "home": 0,
-   "mt": 37,
-   "mo": 31,
-   "sel": 13,
-   "plus": 17,
-   "leg": 1,
-   "wear": 1,
-   "acc": 144.96,
+   "acc": 274.93,
    "daily": 0
   },
   {
@@ -140,19 +140,19 @@
   },
   {
    "name": "Justin Cisneros",
-   "rgu": 42,
-   "int": 11,
+   "rgu": 45,
+   "int": 12,
    "tv": 3,
    "voice": 0,
    "home": 0,
-   "mt": 28,
-   "mo": 21,
+   "mt": 30,
+   "mo": 23,
    "sel": 14,
-   "plus": 7,
+   "plus": 9,
    "leg": 0,
    "wear": 2,
    "acc": 349.91,
-   "daily": 2
+   "daily": 3
   },
   {
    "name": "Albert Thiel",
@@ -168,7 +168,7 @@
    "leg": 1,
    "wear": 3,
    "acc": 1244.69,
-   "daily": 7
+   "daily": 0
   },
   {
    "name": "Jayme Cadenas-Lara",
@@ -188,12 +188,12 @@
   },
   {
    "name": "Nancy Garcia",
-   "rgu": 33,
-   "int": 5,
+   "rgu": 35,
+   "int": 6,
    "tv": 0,
    "voice": 0,
    "home": 0,
-   "mt": 28,
+   "mt": 29,
    "mo": 22,
    "sel": 6,
    "plus": 15,
@@ -239,33 +239,33 @@
   "59041": {
    "name": "Lodi",
    "target": 163,
-   "rgu": 217,
-   "traffic": 1104,
+   "rgu": 218,
+   "traffic": 1117,
    "int": 48,
    "tv": 8,
    "voice": 4,
    "home": 0,
-   "mt": 157,
-   "mo": 128,
+   "mt": 158,
+   "mo": 129,
    "sel": 20,
-   "plus": 105,
+   "plus": 106,
    "leg": 3,
-   "wear": 8,
-   "acc": 2774.32
+   "wear": 9,
+   "acc": 2844.3
   },
   "59083": {
    "name": "Antelope",
    "target": 380,
-   "rgu": 336,
-   "traffic": 2564,
-   "int": 84,
+   "rgu": 348,
+   "traffic": 2638,
+   "int": 86,
    "tv": 10,
-   "voice": 9,
+   "voice": 10,
    "home": 0,
-   "mt": 233,
-   "mo": 217,
-   "sel": 50,
-   "plus": 167,
+   "mt": 242,
+   "mo": 226,
+   "sel": 54,
+   "plus": 172,
    "leg": 0,
    "wear": 8,
    "acc": 1524.6
@@ -274,7 +274,7 @@
    "name": "Placerville",
    "target": 150,
    "rgu": 91,
-   "traffic": 1077,
+   "traffic": 1100,
    "int": 25,
    "tv": 8,
    "voice": 0,
@@ -290,11 +290,11 @@
   "59007": {
    "name": "Downtown Sacramento",
    "target": 293,
-   "rgu": 197,
-   "traffic": 2018,
+   "rgu": 198,
+   "traffic": 2068,
    "int": 94,
    "tv": 10,
-   "voice": -1,
+   "voice": 0,
    "home": 0,
    "mt": 94,
    "mo": 92,
@@ -302,112 +302,112 @@
    "plus": 40,
    "leg": -23,
    "wear": 4,
-   "acc": 959.73
+   "acc": 999.72
   },
   "59005": {
    "name": "Elk Grove",
    "target": 893,
-   "rgu": 750,
-   "traffic": 6104,
-   "int": 265,
-   "tv": 47,
-   "voice": 17,
+   "rgu": 779,
+   "traffic": 6268,
+   "int": 278,
+   "tv": 48,
+   "voice": 18,
    "home": 1,
-   "mt": 420,
-   "mo": 390,
-   "sel": 145,
-   "plus": 248,
-   "leg": -3,
-   "wear": 7,
-   "acc": 3644.08
+   "mt": 434,
+   "mo": 403,
+   "sel": 148,
+   "plus": 257,
+   "leg": -2,
+   "wear": 9,
+   "acc": 3684.07
   },
   "59010": {
    "name": "Sunrise Plaza",
    "target": 670,
-   "rgu": 527,
-   "traffic": 4583,
-   "int": 149,
+   "rgu": 541,
+   "traffic": 4702,
+   "int": 154,
    "tv": 30,
    "voice": 1,
    "home": 2,
-   "mt": 345,
-   "mo": 304,
-   "sel": 128,
-   "plus": 174,
+   "mt": 354,
+   "mo": 311,
+   "sel": 131,
+   "plus": 178,
    "leg": 2,
    "wear": 14,
-   "acc": 4218.87
+   "acc": 4273.86
   },
   "59004": {
    "name": "Rancho Cordova",
    "target": 483,
-   "rgu": 327,
-   "traffic": 3470,
-   "int": 121,
+   "rgu": 333,
+   "traffic": 3561,
+   "int": 125,
    "tv": 14,
    "voice": 6,
    "home": 1,
-   "mt": 185,
-   "mo": 169,
-   "sel": 52,
-   "plus": 113,
+   "mt": 187,
+   "mo": 171,
+   "sel": 53,
+   "plus": 114,
    "leg": 4,
    "wear": 8,
-   "acc": 3114.21
+   "acc": 3209.19
   },
   "59095": {
    "name": "Florin Towne Center",
    "target": 353,
-   "rgu": 189,
-   "traffic": 2406,
-   "int": 80,
+   "rgu": 196,
+   "traffic": 2470,
+   "int": 83,
    "tv": 9,
    "voice": 0,
    "home": 0,
-   "mt": 100,
-   "mo": 102,
+   "mt": 104,
+   "mo": 106,
    "sel": 56,
-   "plus": 63,
-   "leg": -17,
-   "wear": 6,
-   "acc": 1189.67
+   "plus": 65,
+   "leg": -15,
+   "wear": 7,
+   "acc": 1229.66
   }
  },
  "nps": {
   "59083": [
-   83,
-   90.4
+   85,
+   90.6
   ],
   "59041": [
-   97,
-   88.7
+   104,
+   89.4
   ],
   "59095": [
    59,
    88.1
   ],
-  "59010": [
-   178,
-   86.0
-  ],
   "59007": [
-   96,
-   85.4
+   97,
+   85.6
+  ],
+  "59010": [
+   188,
+   85.1
   ],
   "59005": [
-   208,
-   81.3
+   216,
+   81.9
   ],
   "59112": [
-   36,
-   80.6
+   37,
+   81.1
   ],
   "59004": [
    118,
    79.7
   ]
  },
- "daily_store_rgu": 18,
+ "daily_store_rgu": 14,
  "prev_rank": 4,
  "nps_detail": {
   "weeks": [
