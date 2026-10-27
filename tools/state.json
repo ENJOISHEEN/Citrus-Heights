@@ -1,5 +1,5 @@
 {
- "date": "2026-10-25",
+ "date": "2026-10-26",
  "target": 670,
  "plan_history": [
   740,
@@ -11,19 +11,19 @@
   670
  ],
  "store": {
-  "rgu": 541,
-  "int": 154,
-  "tv": 30,
-  "voice": 1,
+  "rgu": 564,
+  "int": 158,
+  "tv": 31,
+  "voice": 2,
   "home": 2,
-  "mt": 354,
-  "mo": 311,
-  "sel": 131,
-  "plus": 178,
+  "mt": 371,
+  "mo": 326,
+  "sel": 135,
+  "plus": 189,
   "leg": 2,
-  "wear": 14,
-  "acc": 4273.86,
-  "traffic": 4702
+  "wear": 15,
+  "acc": 4353.84,
+  "traffic": 4887
  },
  "reps": [
   {
@@ -44,35 +44,51 @@
   },
   {
    "name": "Kevin Nguyen",
-   "rgu": 60,
+   "rgu": 63,
    "int": 17,
    "tv": 5,
    "voice": 0,
    "home": 0,
-   "mt": 38,
-   "mo": 34,
+   "mt": 41,
+   "mo": 37,
    "sel": 21,
-   "plus": 15,
+   "plus": 18,
    "leg": -2,
    "wear": 2,
-   "acc": 884.74,
-   "daily": 2
+   "acc": 924.73,
+   "daily": 3
   },
   {
    "name": "Andrew Voong",
-   "rgu": 57,
-   "int": 20,
+   "rgu": 60,
+   "int": 21,
    "tv": 4,
    "voice": 0,
    "home": 1,
-   "mt": 32,
-   "mo": 28,
-   "sel": 6,
-   "plus": 19,
+   "mt": 34,
+   "mo": 30,
+   "sel": 7,
+   "plus": 20,
    "leg": 3,
    "wear": 0,
    "acc": 189.97,
-   "daily": 1
+   "daily": 3
+  },
+  {
+   "name": "Brianna Lewis",
+   "rgu": 60,
+   "int": 12,
+   "tv": 3,
+   "voice": 0,
+   "home": 0,
+   "mt": 45,
+   "mo": 37,
+   "sel": 16,
+   "plus": 20,
+   "leg": 1,
+   "wear": 1,
+   "acc": 144.96,
+   "daily": 7
   },
   {
    "name": "Kenneth Nguyen",
@@ -88,23 +104,7 @@
    "leg": -2,
    "wear": 1,
    "acc": 108.98,
-   "daily": 2
-  },
-  {
-   "name": "Brianna Lewis",
-   "rgu": 53,
-   "int": 10,
-   "tv": 3,
-   "voice": 0,
-   "home": 0,
-   "mt": 40,
-   "mo": 33,
-   "sel": 15,
-   "plus": 17,
-   "leg": 1,
-   "wear": 1,
-   "acc": 144.96,
-   "daily": 4
+   "daily": 0
   },
   {
    "name": "Daisy Ingraham",
@@ -124,10 +124,10 @@
   },
   {
    "name": "Ashton Wilson",
-   "rgu": 45,
+   "rgu": 47,
    "int": 17,
-   "tv": 5,
-   "voice": 0,
+   "tv": 6,
+   "voice": 1,
    "home": 0,
    "mt": 23,
    "mo": 22,
@@ -136,7 +136,7 @@
    "leg": 1,
    "wear": 1,
    "acc": 54.99,
-   "daily": 0
+   "daily": 2
   },
   {
    "name": "Justin Cisneros",
@@ -152,39 +152,39 @@
    "leg": 0,
    "wear": 2,
    "acc": 349.91,
-   "daily": 3
+   "daily": 0
   },
   {
    "name": "Albert Thiel",
-   "rgu": 40,
-   "int": 10,
+   "rgu": 43,
+   "int": 9,
    "tv": 0,
    "voice": 0,
    "home": 1,
-   "mt": 29,
-   "mo": 29,
+   "mt": 33,
+   "mo": 33,
    "sel": 10,
-   "plus": 18,
+   "plus": 22,
    "leg": 1,
    "wear": 3,
-   "acc": 1244.69,
-   "daily": 0
+   "acc": 1284.68,
+   "daily": 3
   },
   {
    "name": "Jayme Cadenas-Lara",
-   "rgu": 38,
-   "int": 13,
+   "rgu": 43,
+   "int": 15,
    "tv": 1,
    "voice": 0,
    "home": 0,
-   "mt": 24,
-   "mo": 23,
-   "sel": 15,
+   "mt": 27,
+   "mo": 25,
+   "sel": 17,
    "plus": 10,
    "leg": -2,
-   "wear": 0,
+   "wear": 1,
    "acc": 159.96,
-   "daily": 0
+   "daily": 5
   },
   {
    "name": "Nancy Garcia",
@@ -200,7 +200,7 @@
    "leg": 1,
    "wear": 2,
    "acc": 549.82,
-   "daily": 2
+   "daily": 0
   },
   {
    "name": "Jaden Alexander",
@@ -239,50 +239,50 @@
   "59041": {
    "name": "Lodi",
    "target": 163,
-   "rgu": 218,
-   "traffic": 1117,
-   "int": 48,
+   "rgu": 228,
+   "traffic": 1150,
+   "int": 49,
    "tv": 8,
    "voice": 4,
    "home": 0,
-   "mt": 158,
-   "mo": 129,
-   "sel": 20,
-   "plus": 106,
+   "mt": 167,
+   "mo": 138,
+   "sel": 26,
+   "plus": 109,
    "leg": 3,
    "wear": 9,
-   "acc": 2844.3
+   "acc": 2999.22
   },
   "59083": {
    "name": "Antelope",
    "target": 380,
-   "rgu": 348,
-   "traffic": 2638,
-   "int": 86,
+   "rgu": 359,
+   "traffic": 2716,
+   "int": 89,
    "tv": 10,
    "voice": 10,
    "home": 0,
-   "mt": 242,
-   "mo": 226,
-   "sel": 54,
-   "plus": 172,
-   "leg": 0,
+   "mt": 250,
+   "mo": 233,
+   "sel": 55,
+   "plus": 177,
+   "leg": 1,
    "wear": 8,
    "acc": 1524.6
   },
   "59112": {
    "name": "Placerville",
    "target": 150,
-   "rgu": 91,
-   "traffic": 1100,
-   "int": 25,
-   "tv": 8,
-   "voice": 0,
+   "rgu": 99,
+   "traffic": 1166,
+   "int": 28,
+   "tv": 9,
+   "voice": 1,
    "home": 0,
-   "mt": 58,
-   "mo": 50,
+   "mt": 61,
+   "mo": 51,
    "sel": 11,
-   "plus": 37,
+   "plus": 38,
    "leg": 2,
    "wear": 2,
    "acc": 1809.57
@@ -290,124 +290,124 @@
   "59007": {
    "name": "Downtown Sacramento",
    "target": 293,
-   "rgu": 198,
-   "traffic": 2068,
-   "int": 94,
+   "rgu": 218,
+   "traffic": 2151,
+   "int": 102,
    "tv": 10,
    "voice": 0,
    "home": 0,
-   "mt": 94,
-   "mo": 92,
-   "sel": 75,
-   "plus": 40,
+   "mt": 106,
+   "mo": 104,
+   "sel": 82,
+   "plus": 45,
    "leg": -23,
    "wear": 4,
-   "acc": 999.72
+   "acc": 1039.71
   },
   "59005": {
    "name": "Elk Grove",
    "target": 893,
-   "rgu": 779,
-   "traffic": 6268,
-   "int": 278,
-   "tv": 48,
+   "rgu": 817,
+   "traffic": 6509,
+   "int": 288,
+   "tv": 49,
    "voice": 18,
-   "home": 1,
-   "mt": 434,
-   "mo": 403,
-   "sel": 148,
-   "plus": 257,
-   "leg": -2,
+   "home": 2,
+   "mt": 460,
+   "mo": 427,
+   "sel": 159,
+   "plus": 269,
+   "leg": -1,
    "wear": 9,
-   "acc": 3684.07
+   "acc": 3874.02
   },
   "59010": {
    "name": "Sunrise Plaza",
    "target": 670,
-   "rgu": 541,
-   "traffic": 4702,
-   "int": 154,
-   "tv": 30,
-   "voice": 1,
+   "rgu": 564,
+   "traffic": 4887,
+   "int": 158,
+   "tv": 31,
+   "voice": 2,
    "home": 2,
-   "mt": 354,
-   "mo": 311,
-   "sel": 131,
-   "plus": 178,
+   "mt": 371,
+   "mo": 326,
+   "sel": 135,
+   "plus": 189,
    "leg": 2,
-   "wear": 14,
-   "acc": 4273.86
+   "wear": 15,
+   "acc": 4353.84
   },
   "59004": {
    "name": "Rancho Cordova",
    "target": 483,
-   "rgu": 333,
-   "traffic": 3561,
-   "int": 125,
-   "tv": 14,
-   "voice": 6,
+   "rgu": 335,
+   "traffic": 3688,
+   "int": 126,
+   "tv": 13,
+   "voice": 3,
    "home": 1,
-   "mt": 187,
-   "mo": 171,
-   "sel": 53,
+   "mt": 192,
+   "mo": 177,
+   "sel": 59,
    "plus": 114,
    "leg": 4,
    "wear": 8,
-   "acc": 3209.19
+   "acc": 3369.15
   },
   "59095": {
    "name": "Florin Towne Center",
    "target": 353,
-   "rgu": 196,
-   "traffic": 2470,
-   "int": 83,
-   "tv": 9,
+   "rgu": 213,
+   "traffic": 2575,
+   "int": 89,
+   "tv": 11,
    "voice": 0,
    "home": 0,
-   "mt": 104,
-   "mo": 106,
-   "sel": 56,
-   "plus": 65,
-   "leg": -15,
+   "mt": 113,
+   "mo": 115,
+   "sel": 60,
+   "plus": 68,
+   "leg": -13,
    "wear": 7,
-   "acc": 1229.66
+   "acc": 1304.64
   }
  },
  "nps": {
   "59083": [
-   85,
-   90.6
+   86,
+   90.7
   ],
   "59041": [
-   104,
-   89.4
+   110,
+   89.1
   ],
   "59095": [
-   59,
-   88.1
+   62,
+   87.1
   ],
   "59007": [
-   97,
-   85.6
+   98,
+   85.7
   ],
   "59010": [
-   188,
-   85.1
-  ],
-  "59005": [
-   216,
-   81.9
+   196,
+   84.7
   ],
   "59112": [
    37,
    81.1
   ],
+  "59005": [
+   223,
+   80.3
+  ],
   "59004": [
-   118,
-   79.7
+   122,
+   78.7
   ]
  },
- "daily_store_rgu": 14,
+ "daily_store_rgu": 23,
  "prev_rank": 4,
  "nps_detail": {
   "weeks": [
