@@ -2,6 +2,85 @@ import math,re,json,sys,datetime as dt
 L='https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377'
 GROUPS=["Ashton, Brianna &amp; Joseph","Kevin &amp; Daisy","Kenneth, Justin &amp; Nancy","De-Jon &amp; Andrew","Albert &amp; Jayme"]
 ZONES=["A Front &amp; Windows","B Sales Floor","C Register Area","D Back Room","E Restroom &amp; Supply"]
+
+# Black Friday 2026 promo calendar. Each row: (name, start, end, savings). start=None means
+# always-on (no promo window). Re-run build_board.py any day and the card below will show
+# what's live today, what's starting soon, and what's already expired — no manual edits needed
+# until the deals themselves change.
+BF_START=dt.date(2026,11,11); BF_END=dt.date(2026,12,1)
+TIPS=[  # trade-in required, DPP required
+ ('Google — new lines', BF_START, BF_END, '$1,500'),
+ ('Google — upgrade', BF_START, BF_END, '$1,230'),
+ ('Samsung — new lines', BF_START, BF_END, '$1,300'),
+ ('Samsung — upgrade', BF_START, BF_END, '$1,100'),
+ ('Apple &amp; Moto — new lines', BF_START, BF_END, '$1,200'),
+ ('Apple &amp; Moto — upgrade', BF_START, BF_END, '$930'),
+ ('Diamond: iPhone Duo — upgrade', dt.date(2026,10,16), BF_END, '$1,000'),
+]
+NOTRADE=[  # DPP required, no trade-in
+ ('Google — new lines', BF_START, BF_END, '$750'),
+ ('Google — upgrade', BF_START, BF_END, '$550'),
+ ('Samsung — new lines', dt.date(2026,10,9), BF_END, '$500'),
+ ('Samsung — upgrade', dt.date(2026,10,9), BF_END, '$300'),
+ ('Apple &amp; Moto — new lines', BF_START, BF_END, '$400'),
+ ('Apple &amp; Moto — upgrade', BF_START, BF_END, '$200'),
+ ('Diamond/Platinum: Galaxy S26FE "On Us" — new line', BF_START, BF_END, '$699.99'),
+]
+ANYTIME=[  # upgrade-anytime, existing lines (NDEL) only
+ ('Apple &amp; Moto', BF_START, BF_END, '$200'),
+ ('Samsung', BF_START, BF_END, '$300'),
+ ('Google', dt.date(2026,10,9), BF_END, '$300'),
+]
+TABLETS=[
+ ('iPad A16', BF_START, BF_END, '50% off ($599.99 MSRP)'),
+ ('Galaxy Tab S10FE', BF_START, BF_END, '50% off ($649.99 MSRP)'),
+ ('Galaxy Tab S12+', BF_START, BF_END, '50% off ($1,349.99 MSRP)'),
+]
+WATCH=[
+ ('Gold members', BF_START, BF_END, '$300'),
+ ('Platinum members', dt.date(2026,10,28), BF_END, '$300'),
+ ('Diamond members', dt.date(2026,5,11), BF_END, '$300'),
+ ('Employees', dt.date(2026,1,21), BF_END, '$300'),
+]
+SERVICE=[
+ ('First line free — Mobile Select $0/mo x 12mo (new XM, 300 Mbps+ internet)', None, None, ''),
+ ('Targeted: $30 off/mo (3+ new lines, same order)', dt.date(2026,11,19), dt.date(2027,3,31), ''),
+ ('Targeted: $60 off/mo (4+ new lines, same order)', dt.date(2026,11,19), dt.date(2027,3,31), ''),
+ ('Waived $25 activation fee', dt.date(2026,5,11), BF_END, ''),
+]
+def _timing(s,e):
+    if s is None: return 'Ongoing'
+    t=f'{s.month}/{s.day}'+(f'/{s.year-2000}' if s.year!=2026 else '')
+    t+='–'+f'{e.month}/{e.day}'+(f'/{e.year-2000}' if e.year!=2026 else '')
+    return t
+def _status(s,e,pub):
+    if s is None: return ''
+    if pub<s: return f' <span class="mut">(starts {s.month}/{s.day})</span>'
+    if 0<=(e-pub).days<=3: return f' <span class="mut">(ends {e.month}/{e.day})</span>'
+    return ''
+def bf_table(rows,pub,cols=('Deal','Timing','Savings')):
+    trs=''.join(f'<tr><td class="nm">{n}</td><td>{_timing(s,e)}</td><td>{sv}{_status(s,e,pub)}</td></tr>' for n,s,e,sv in rows)
+    return '<table><thead><tr>'+''.join(f'<th>{c}</th>' for c in cols)+f'</tr></thead><tbody>{trs}</tbody></table>'
+def bf_card(pub):
+    allrows=[(c,*r) for c,rows in (('TIPs (trade-in)',TIPS),('No trade-in',NOTRADE),('Upgrade anytime',ANYTIME),('Tablets &amp; watches',TABLETS+WATCH)) for r in rows]
+    live=lambda s,e: s is not None and s<=pub<=e
+    early=[(c,n,sv) for c,n,s,e,sv in allrows if live(s,e) and s<BF_START]
+    main=[(c,n,sv) for c,n,s,e,sv in allrows if s==BF_START and pub<=e]
+    bullets=''
+    if early:
+        bullets+='<li><b>Early/live now (ends 12/1):</b> '+' · '.join(f'{n} {sv}' for c,n,sv in early)+'</li>'
+    if main:
+        bullets+=f'<li><b>Black Friday window ({_timing(BF_START,BF_END)}):</b> '+' · '.join(f'{n} {sv}' for c,n,sv in main)+'</li>'
+    bullets+='<li><b>Also:</b> First line free (Mobile Select, new XM + 300Mbps+ internet) · waived $25 activation (thru 12/1) · 11/19–3/31/27: targeted $30 off (3+ lines) / $60 off (4+ lines) — check Members Hub/Einstein360 eligibility first</li>'
+    details=(
+        '<details><summary>Show deal tables &amp; links</summary><div class="tw">'
+        f'<b><a href="{L}#TIPSdeals">TIPs — trade-in required</a></b>{bf_table(TIPS,pub)}</div>'
+        f'<div class="tw" style="margin-top:6px"><b><a href="{L}#flagship">No trade-in</a></b>{bf_table(NOTRADE,pub)}</div>'
+        f'<div class="tw" style="margin-top:6px"><b><a href="{L}#anytime">Upgrade anytime</a> (existing lines only)</b>{bf_table(ANYTIME,pub)}</div>'
+        f'<div class="tw" style="margin-top:6px"><b>Smartwatches &amp; tablets</b>{bf_table(TABLETS+WATCH,pub)}</div>'
+        f'<div class="tw" style="margin-top:6px"><b>Service discounts</b>{bf_table(SERVICE,pub,cols=("Deal","Timing","Notes"))}</div>'
+        '</details>')
+    return f'<div class="card"><h3>🖤 Black Friday deals — {_timing(BF_START,BF_END)}</h3><ul>{bullets}</ul>{details}</div>'
 def clean_html(pub):
     w=(pub-dt.date(2026,10,12)).days//7
     mon=dt.date(2026,10,12)+dt.timedelta(days=7*w); sun=mon+dt.timedelta(days=6); nm=mon+dt.timedelta(days=7)
@@ -76,7 +155,7 @@ def build(state,pub,out):
     NPS_SCORE=nps
     NPS_TEXT='<b>'+('Still under our 90 goal.' if nps<90 else 'At goal — keep it there.')+f'</b> {state["nps"]["59010"][0]} responses this month. <b>Ask every customer for the survey</b> and set the expectation of a 9–10 experience before they leave. <br><a href="nps/"><b>Open the NPS Focus page →</b></a>'
     CLEAN=clean_html(pub)
-    TAB_LI='<li>⏰ <b>$300 off Galaxy Tab S12+ ends 10/20</b></li>' if pub<=dt.date(2026,10,20) else ''
+    BF_CARD=bf_card(pub)
     html=f'''<!DOCTYPE html>
     <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Daily Huddle Board — Bridge Xfinity #59010 — {DATE_LONG} (MTD 10/1-{DATE_MD})</title>
@@ -109,7 +188,7 @@ def build(state,pub,out):
     tr:nth-child(even) td{{background:#FBFAFC}} td.bad{{background:#FDE0E0!important;color:var(--r);font-weight:800}} tr.tot td{{background:#EDE3F5!important;font-weight:800}} tr.me td{{background:#F5F0FA!important;font-weight:800}}
     .tw{{overflow-x:auto;border:1px solid #eee;border-radius:8px}}
     .mut{{color:var(--mut);font-size:.85em;font-weight:400}}
-    details{{margin-top:8px}} summary{{cursor:pointer;color:var(--p);font-weight:700;font-size:13px;padding:6px 0;list-style:none}} summary::before{{content:"▸ "}} details[open] summary::before{{content:"▾ "}}
+    details{{margin-top:8px}} details:not([open])>*:not(summary){{display:none!important}} summary{{cursor:pointer;color:var(--p);font-weight:700;font-size:13px;padding:6px 0;list-style:none}} summary::before{{content:"▸ "}} details[open] summary::before{{content:"▾ "}}
     .nps{{display:flex;gap:18px;align-items:center;border:1px solid var(--bd);border-radius:8px;padding:10px 14px;flex-wrap:wrap}}
     .nps .big{{font-size:42px;font-weight:800;color:var(--r);line-height:1;text-align:center}} .nps .big small{{display:block;font-size:11px;color:var(--mut);font-weight:600}}
     .two{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}}
@@ -127,20 +206,8 @@ def build(state,pub,out):
 
     <section class="sec" id="ops"><div class="band"><span class="n">1</span><div><b>Operations &amp; Updates</b><span class="sub">Start here</span></div></div>
     <div class="grid">
-    <div class="card"><h3>📣 New phone deals — through 11/10</h3><ul>
-    <li><b>🆕 iPhone Duo preorder (10/16–11/10): up to $1,000 off.</b> Customer must <b>add a new line with Plus or Premium + a qualifying trade-in</b>. Diamond members get up to $1,000 off on upgrades. <b>Preorders arrive on time — no delay, no backorder</b>, so sell it with confidence.</li>
-    <li><b>Apple · Google · Moto:</b> up to $930 off new lines, up to $500 off upgrades (trade-in) — or $400 / $200 off with no trade-in</li>
-    <li><b>Samsung:</b> up to $1,200 off new lines, up to $700 off upgrades (trade-in) — or $500 / $300 off with no trade-in</li>
-    <li><b>Upgrade anytime:</b> $200 off Apple/Google/Moto · $300 off Samsung</li>
-    {TAB_LI}
-    <li><b>$200 Virtual Visa gift card</b> when a customer adds 2+ mobile lines (retail only, 10/16–11/2)</li>
-    <li>Diamond $300 off watches &amp; waived $25 activation (thru 10/30) · Always On free line</li></ul>
-    <details><summary>Show deal table &amp; links</summary><div class="tw"><table><thead><tr><th>Offer</th><th>Apple · Google · Moto</th><th>Samsung</th></tr></thead><tbody>
-    <tr><td class="nm">iPhone Duo preorder (10/16–11/10)</td><td colspan="2">New line (Plus/Premium + trade-in): up to $1,000 · Diamond upgrade: up to $1,000</td></tr>
-    <tr><td class="nm"><a href="{L}#TIPSdeals">TIPs (trade-in)</a></td><td>New up to $930 · Upgrade up to $500</td><td>New up to $1,200 · Upgrade up to $700</td></tr>
-    <tr><td class="nm"><a href="{L}#flagship">Flagship (no trade-in)</a></td><td>New $400 · Upgrade $200</td><td>New $500 · Upgrade $300</td></tr>
-    <tr><td class="nm"><a href="{L}#anytime">Upgrade anytime</a></td><td>$200 off</td><td>$300 off</td></tr></tbody></table></div></details>
-    <details><summary>Show internet pricing &amp; CSG codes</summary><div class="tw"><table class="nowrap"><thead><tr><th>Speed tier</th><th>300 Mbps</th><th>500 Mbps</th><th>1 Gig</th><th>1.2 Gig</th><th>2 Gig</th></tr></thead><tbody>
+    {BF_CARD}
+    <div class="card"><h3>🌐 Internet pricing &amp; CSG codes</h3><details><summary>Show pricing table</summary><div class="tw"><table class="nowrap"><thead><tr><th>Speed tier</th><th>300 Mbps</th><th>500 Mbps</th><th>1 Gig</th><th>1.2 Gig</th><th>2 Gig</th></tr></thead><tbody>
     <tr><td class="nm">WiFi gateway · Unlimited data · Free line deal</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
     <tr><td class="nm">Peacock Premium</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td></tr>
     <tr><td class="nm">5-year deal ($ · CSG)</td><td>$45 · 2XC</td><td>$50 · 2XA</td><td>$60 · 2X6</td><td>$85 · 2X8</td><td>$85 · 2XB</td></tr>
