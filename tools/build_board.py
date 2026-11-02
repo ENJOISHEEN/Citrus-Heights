@@ -1,4 +1,4 @@
-import math,re,json,sys,datetime as dt
+import calendar,math,re,json,sys,datetime as dt
 L='https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377'
 GROUPS=["Ashton, Brianna &amp; Joseph","Kevin &amp; Daisy","Kenneth, Justin &amp; Nancy","De-Jon &amp; Andrew","Albert &amp; Jayme"]
 ZONES=["A Front &amp; Windows","B Sales Floor","C Register Area","D Back Room","E Restroom &amp; Supply"]
@@ -90,7 +90,7 @@ def clean_html(pub):
       f'<details><summary>Show next week ({nm.month}/{nm.day})</summary><table class="nowrap"><tbody>{t2}</tbody></table><div class="mut" style="margin-top:4px"><a href="https://claude.ai/artifact/SDrzApSmTQHCg9NvVd3Q9Z">Task checklists &amp; full schedule</a></div></details></div>')
 def build(state,pub,out):
     S=state['store']; d=dt.date.fromisoformat(state['date'])
-    DAY=d.day; DIM=31; LEFT=DIM-DAY; TGT=state['target']; GOAL=math.ceil(TGT*1.25); ACT=S['rgu']; GAP=GOAL-ACT; PACE=ACT/DAY; SELL=35
+    DAY=d.day; DIM=calendar.monthrange(d.year,d.month)[1]; LEFT=DIM-DAY; TGT=state['target']; GOAL=math.ceil(TGT*1.25); ACT=S['rgu']; GAP=GOAL-ACT; PACE=ACT/DAY; SELL=35
     DATE_LONG=d.strftime('%B ')+str(d.day)+', 2026'; DATE_MD=f'{d.month}/{d.day}'
     PLAN_HIST=' → '.join(str(x) for x in state['plan_history'])
     reps=state['reps']; n=len(reps)
@@ -126,7 +126,7 @@ def build(state,pub,out):
         tab=mt-mo; need=(SHARE-g)/LEFT; pace=g/DAY
         gp+=f'<tr><td class="nm">{nme}</td><td{fl(need>pace)}>{need:.1f} <span class="mut">(now {pace:.1f})</span></td><td>{max(0,4-tv)}</td><td>{max(0,8-tab)}</td><td>{max(0,4-w)}</td><td>${max(0,450-acc):,.0f}</td></tr>'
     cp=""
-    for lab,dd in [("Sun 10/18",18),("Sun 10/25",25),("Sat 10/31",31)]:
+    for lab,dd in [(("Sun " if dt.date(d.year,d.month,x).weekday()==6 else ("Sat " if x==DIM else "Mon "))+f"{d.month}/{x}",x) for x in sorted({x for x in range(1,DIM+1) if dt.date(d.year,d.month,x).weekday()==6}|{DIM})]:
         if dd<=DAY: continue
         f=(dd-DAY)/LEFT; mo_=MO+Mtot*f; pl_=PL+(Ptot-PL)*f; rg=ACT+round(SELL*LEFT*f)
         cp+=f'<tr><td class="nm">{lab}</td><td>{rg} <span class="mut">({rg/GOAL*100:.0f}% of {GOAL})</span></td><td>{pl_/mo_*100:.0f}%</td><td>{S["tv"]+round(TVN*f)}</td><td>{STAB+round(TABN*f)}</td><td>{S["wear"]+round(WN*f)}</td></tr>'
@@ -158,7 +158,7 @@ def build(state,pub,out):
     BF_CARD=bf_card(pub)
     html=f'''<!DOCTYPE html>
     <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily Huddle Board — Bridge Xfinity #59010 — {DATE_LONG} (MTD 10/1-{DATE_MD})</title>
+    <title>Daily Huddle Board — Bridge Xfinity #59010 — {DATE_LONG} (MTD {d.month}/1-{DATE_MD})</title>
     <style>
     :root{{--p:#6E2C91;--pl:#F5F0FA;--bd:#E3DCEC;--g:#1E7E34;--r:#C00000;--a:#B8720C;--t:#241F2E;--mut:#777}}
     *{{box-sizing:border-box}} body{{margin:0;font-family:'Segoe UI',Arial,sans-serif;color:var(--t);background:#fff;font-size:15px;line-height:1.4;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
@@ -200,7 +200,7 @@ def build(state,pub,out):
     @page{{size:11in 8.5in landscape;margin:.3in}}
     @media print{{body{{font-size:11px}} nav{{display:none}} .wrap{{max-width:none;padding:0}} .sec{{break-after:page;margin-top:0}} .sec:last-of-type{{break-after:auto}} table{{font-size:10.5px}} .tile .v{{font-size:20px}} th{{font-size:9px}} td{{padding:3px 6px}} summary{{display:none}} details:not([open]){{display:none}} #ops{{break-after:auto}} #nps{{break-after:page}} .card{{break-inside:avoid}}}}
     </style></head><body><div class="wrap">
-    <header><div><h1>Daily Huddle Board</h1><div class="s">Bridge Xfinity Store #59010 — Sunrise Plaza</div></div><div class="d">{DATE_LONG} (MTD 10/1-{DATE_MD})<small>Day {DAY} of {DIM} · {LEFT} days left</small></div></header>
+    <header><div><h1>Daily Huddle Board</h1><div class="s">Bridge Xfinity Store #59010 — Sunrise Plaza</div></div><div class="d">{DATE_LONG} (MTD {d.month}/1-{DATE_MD})<small>Day {DAY} of {DIM} · {LEFT} days left</small></div></header>
     <div class="goalbar">🎯 GOAL: 125% OF PLAN = {GOAL} RGUs &nbsp;·&nbsp; we're at {ACT} &nbsp;·&nbsp; sell 35 a day to cover chargebacks &amp; refunds</div>
     <nav><a href="#ops">① Operations</a><a href="#nps">② NPS</a><a href="#results">③ Results</a><a href="#plan">④ Game Plan</a></nav>
 
