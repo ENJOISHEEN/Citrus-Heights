@@ -143,6 +143,8 @@ def build(state,pub,out):
     tv0=[r['name'].split()[0] for r in reps if r['tv']==0]
     foc=[f'<li><b>NPS {nps:.1f}</b> — '+('under' if nps<90 else 'at')+f' our 90 goal ({state["nps"]["59010"][0]} responses)</li>',
          f'<li><b>XM+ Attach {ATT0:.0f}%</b> — goal 65%'+(' · above 65%: '+', '.join(above) if above else '')+'</li>']
+    behind=[f"{r['name'].split()[0]} ({r['rgu']})" for r in reps if r['rgu']<60*DAY/DIM]
+    foc.insert(0,'<li><b>California ask: 60 RGUs this month is the minimum</b> to stay on the team (60 is the floor, not max pay)'+(' · behind the 60 pace: '+', '.join(behind) if behind else ' · everyone is on pace')+'</li>')
     foc.append('<li><b>Push tablets — PLAY CALL:</b> GIG Speed 5-year $60.00 + tablet $29 = <b>$90/mo bundle</b>. Better than Every Day Pricing · 5-year deal · after 3 years the price drops to $60 for the last 2 years</li>')
     extra=[]
     if flat: extra.append('flat yesterday: '+', '.join(flat))
