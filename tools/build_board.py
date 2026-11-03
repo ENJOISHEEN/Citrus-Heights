@@ -1,6 +1,6 @@
 import calendar,math,re,json,sys,datetime as dt
 L='https://celestial.cable.comcast.com/knowledge/article-info/?query=240319165608377'
-GROUPS=["Ashton, Brianna &amp; Joseph","Kevin &amp; Daisy","Kenneth, Justin &amp; Nancy","De-Jon &amp; Andrew","Albert &amp; Jayme"]
+GROUPS=["Ashton, Brianna &amp; Joseph","Kevin, Daisy &amp; Josh","Kenneth, Justin &amp; Nancy","De-Jon &amp; Andrew","Albert &amp; Jayme"]
 ZONES=["A Front &amp; Windows","B Sales Floor","C Register Area","D Back Room","E Restroom &amp; Supply"]
 
 # Black Friday 2026 promo calendar. Each row: (name, start, end, savings). start=None means
@@ -143,6 +143,7 @@ def build(state,pub,out):
     tv0=[r['name'].split()[0] for r in reps if r['tv']==0]
     foc=[f'<li><b>NPS {nps:.1f}</b> — '+('under' if nps<90 else 'at')+f' our 90 goal ({state["nps"]["59010"][0]} responses)</li>',
          f'<li><b>XM+ Attach {ATT0:.0f}%</b> — goal 65%'+(' · above 65%: '+', '.join(above) if above else '')+'</li>']
+    foc.append('<li><b>Push tablets — PLAY CALL:</b> GIG Speed 5-year $60.00 + tablet $29 = <b>$90/mo bundle</b>. Better than Every Day Pricing · 5-year deal · after 3 years the price drops to $60 for the last 2 years</li>')
     extra=[]
     if flat: extra.append('flat yesterday: '+', '.join(flat))
     if tv0: extra.append('0 TVs: '+', '.join(tv0))
