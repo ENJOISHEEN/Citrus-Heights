@@ -110,10 +110,10 @@ def build(state,pub,out):
     for nme,g,t,i,tv,v,h,mt,mo,se,pl,lg,w,acc,cm in R:
         att=pl/mo*100 if mo else 0
         full+=f'<tr><td class="nm">{nme}</td><td>{g}</td><td>{t:.1f}%</td><td>{i}</td><td>{tv}</td><td>{mt}</td><td>{mt-mo}</td><td>{pl}</td><td{fl(att<65)}>{att:.2f}%</td><td>${pl*40:,}</td><td>{m(acc)}</td></tr>'
-    full+=f'<tr class="tot"><td class="nm">STORE</td><td>{ACT}</td><td>{ACT/(TGT*DAY/DIM)*100:.1f}%</td><td>{S["int"]}</td><td>{S["tv"]}</td><td>{S["mt"]}</td><td>{STAB}</td><td>{PL}</td><td>{ATT0:.2f}%</td><td>${PL*40:,}</td><td>{m(S["acc"])}</td></tr>'
+    full+=f'<tr class="tot"><td class="nm">STORE</td><td>{ACT}</td><td>{(state['market']['59010'].get('trend') or ACT/(TGT*DAY/DIM)*100):.1f}%</td><td>{S["int"]}</td><td>{S["tv"]}</td><td>{S["mt"]}</td><td>{STAB}</td><td>{PL}</td><td>{ATT0:.2f}%</td><td>${PL*40:,}</td><td>{m(S["acc"])}</td></tr>'
     mk_rows=[]
     for c,s in state['market'].items():
-        mk_rows.append(dict(c=c,name=s['name'],tg=s['target'],a=s['rgu'],t=s['rgu']/(s['target']*DAY/DIM)*100,conv=s['rgu']/s['traffic']*100,tv=s['tv'],tab=s['mt']-s['mo'],w=s['wear'],at=s['plus']/s['mo']*100 if s['mo'] else 0,acc=s['acc'],nps=(state['nps'].get(c) or [0,None])[1]))
+        mk_rows.append(dict(c=c,name=s['name'],tg=s['target'],a=s['rgu'],t=s.get('trend') or s['rgu']/(s['target']*DAY/DIM)*100,conv=s['rgu']/s['traffic']*100,tv=s['tv'],tab=s['mt']-s['mo'],w=s['wear'],at=s['plus']/s['mo']*100 if s['mo'] else 0,acc=s['acc'],nps=(state['nps'].get(c) or [0,None])[1]))
     mk_rows.sort(key=lambda x:-x['t'])
     mk=""
     for k,x in enumerate(mk_rows,1):

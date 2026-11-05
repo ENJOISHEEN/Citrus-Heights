@@ -43,6 +43,25 @@ def seed(xlsx,out):
     state=dict(date=date,target=s['target'],plan_history=st.get('plan_history',[740,750,761,724,s['target']]),store={k:s[k] for k in ['rgu','int','tv','voice','home','mt','mo','sel','plus','leg','wear','acc','traffic']},reps=reps,market=market,nps={c:list(v) for c,v in (parse_nps(open(sys.argv[4]).read()) if len(sys.argv)>4 else {}).items()},daily_store_rgu=sdr,prev_rank=None)
     state['prev_rank']=rank_of(state)
     json.dump(state,open(out,'w'),indent=1); print('seeded',date,s['rgu'],len(reps),'reps')
+def mtd_refresh(st,sh):
+    """Overwrite market totals, targets and RGU trend % from the Store-MTD sheet when the dump includes it."""
+    rows=sh.get('Store-MTD') or []
+    n=lambda x:float(str(x).replace('$','').replace(',','').replace('%','').strip() or 0)
+    ch=[]
+    for r in rows:
+        m=re.match(r'\[(\d+)\]',str(r[1] if len(r)>1 else ''))
+        if not m or m.group(1) not in st['market'] or len(r)<45: continue
+        mk=st['market'][m.group(1)]
+        for k,i in (('target',5),('rgu',6),('traffic',10),('int',12),('tv',14),('voice',17),('home',19),('mt',21),('mo',23),('sel',25),('plus',27),('leg',29),('wear',43),('acc',44)):
+            v=round(n(r[i]),2) if k=='acc' else int(n(r[i]))
+            if mk.get(k)!=v: ch.append(f"{mk['name']} {k} {mk.get(k)}->{v}"); mk[k]=v
+        mk['trend']=round(n(r[9])*(1 if '%' in str(r[9]) else 100),1)
+    s=st['market'][STORE]
+    if s['target']!=st['target']:
+        st['target']=s['target']
+        if st['plan_history'][-1]!=s['target']: st['plan_history'].append(s['target'])
+    st['store']={**st['store'],**{k:s[k] for k in ['rgu','int','tv','voice','home','mt','mo','sel','plus','leg','wear','acc','traffic']}}
+    return ch
 def update(sp,dump,npsf,ddate):
     st=json.load(open(sp)); new=dt.date.fromisoformat(ddate)
     if dt.date.fromisoformat(st['date'])>=new: sys.exit(f"state already at {st['date']}; refusing to double-count {ddate}")
@@ -72,6 +91,8 @@ def update(sp,dump,npsf,ddate):
         if name not in seen:
             nr=dict(name=name,daily=int(z(d[6])),**{k:(round(z(d[i]),2) if k=='acc' else int(z(d[i]))) for k,i in (('rgu',6),('int',7),('tv',8),('voice',9),('home',10),('mt',11),('mo',12),('sel',13),('plus',14),('leg',15),('wear',18),('acc',19))})
             st['reps'].append(nr); notes.append('NEW REP '+name+' (MTD starts at today)')
+    mchg=mtd_refresh(st,sh)
+    if mchg: notes.append('Store-MTD refresh: '+'; '.join(mchg))
     st['reps'].sort(key=lambda x:-x['rgu'])
     chk=sum(r['rgu'] for r in st['reps'])-st['store']['rgu']
     if chk: notes.append(f'rep RGU sum differs from store by {chk}')

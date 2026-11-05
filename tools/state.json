@@ -1,6 +1,6 @@
 {
  "date": "2026-11-04",
- "target": 370,
+ "target": 600,
  "plan_history": [
   740,
   750,
@@ -9,7 +9,8 @@
   720,
   711,
   670,
-  370
+  370,
+  600
  ],
  "store": {
   "rgu": 100,
@@ -239,7 +240,7 @@
  "market": {
   "59041": {
    "name": "Lodi",
-   "target": 83,
+   "target": 121,
    "rgu": 32,
    "traffic": 152,
    "int": 8,
@@ -252,11 +253,12 @@
    "plus": 13,
    "leg": 1,
    "wear": 0,
-   "acc": 249.94
+   "acc": 249.94,
+   "trend": 191.7
   },
   "59083": {
    "name": "Antelope",
-   "target": 230,
+   "target": 316,
    "rgu": 47,
    "traffic": 396,
    "int": 16,
@@ -269,11 +271,12 @@
    "plus": 9,
    "leg": 1,
    "wear": 0,
-   "acc": 354.93
+   "acc": 354.93,
+   "trend": 107.8
   },
   "59112": {
    "name": "Placerville",
-   "target": 70,
+   "target": 149,
    "rgu": 32,
    "traffic": 187,
    "int": 10,
@@ -286,13 +289,14 @@
    "plus": 7,
    "leg": 5,
    "wear": 0,
-   "acc": 0.0
+   "acc": 0.0,
+   "trend": 155.7
   },
   "59007": {
    "name": "Downtown Sacramento",
-   "target": 166,
+   "target": 264,
    "rgu": 38,
-   "traffic": 312,
+   "traffic": 331,
    "int": 12,
    "tv": 1,
    "voice": 0,
@@ -303,11 +307,12 @@
    "plus": 7,
    "leg": 2,
    "wear": 0,
-   "acc": 104.97
+   "acc": 104.97,
+   "trend": 104.4
   },
   "59005": {
    "name": "Elk Grove",
-   "target": 657,
+   "target": 774,
    "rgu": 143,
    "traffic": 971,
    "int": 48,
@@ -320,11 +325,12 @@
    "plus": 42,
    "leg": 6,
    "wear": 0,
-   "acc": 424.9
+   "acc": 424.9,
+   "trend": 133.9
   },
   "59010": {
    "name": "Sunrise Plaza",
-   "target": 370,
+   "target": 600,
    "rgu": 100,
    "traffic": 752,
    "int": 28,
@@ -337,11 +343,12 @@
    "plus": 35,
    "leg": 7,
    "wear": 2,
-   "acc": 444.9
+   "acc": 444.9,
+   "trend": 120.8
   },
   "59004": {
    "name": "Rancho Cordova",
-   "target": 316,
+   "target": 427,
    "rgu": 70,
    "traffic": 535,
    "int": 28,
@@ -354,11 +361,12 @@
    "plus": 23,
    "leg": 1,
    "wear": 2,
-   "acc": 399.91
+   "acc": 399.91,
+   "trend": 118.9
   },
   "59095": {
    "name": "Florin Towne Center",
-   "target": 188,
+   "target": 297,
    "rgu": 53,
    "traffic": 373,
    "int": 19,
@@ -371,7 +379,8 @@
    "plus": 12,
    "leg": 3,
    "wear": 0,
-   "acc": 0.0
+   "acc": 0.0,
+   "trend": 129.4
   }
  },
  "nps": {
