@@ -55,6 +55,7 @@ def _timing(s,e):
     return t
 def _status(s,e,pub):
     if s is None: return ''
+    if (s-pub).days==1: return f' <b style="color:#b45309;background:#fef3c7;padding:1px 5px;border-radius:4px">🔔 STARTS TOMORROW {s.month}/{s.day}</b>'
     if pub<s: return f' <span class="mut">(starts {s.month}/{s.day})</span>'
     if 0<=(e-pub).days<=3: return f' <span class="mut">(ends {e.month}/{e.day})</span>'
     return ''
@@ -67,9 +68,13 @@ def bf_card(pub):
     early=[(c,n,sv) for c,n,s,e,sv in allrows if live(s,e) and s<BF_START]
     main=[(c,n,sv) for c,n,s,e,sv in allrows if s==BF_START and pub<=e]
     bullets=''
+    tmw=[(c,n,sv) for c,n,s,e,sv in allrows if s is not None and (s-pub).days==1]
+    if tmw:
+        d=pub+dt.timedelta(days=1)
+        bullets+=f'<li style="background:#fef3c7;border-left:4px solid #f59e0b;padding:4px 8px;border-radius:4px;list-style:none;margin-left:-18px"><b>🔔 STARTS TOMORROW ({d.month}/{d.day}) — {len(tmw)} deals:</b> '+' · '.join(f'{c.replace("Tablets &amp; watches","Tablet/Watch")}: {n} {sv}' for c,n,sv in tmw)+'</li>'
     if early:
         bullets+='<li><b>Early/live now (ends 12/1):</b> '+' · '.join(f'{n} {sv}' for c,n,sv in early)+'</li>'
-    if main:
+    if main and not tmw:
         bullets+=f'<li><b>Black Friday window ({_timing(BF_START,BF_END)}):</b> '+' · '.join(f'{n} {sv}' for c,n,sv in main)+'</li>'
     bullets+='<li><b>Also:</b> First line free (Mobile Select, new XM + 300Mbps+ internet) · waived $25 activation (thru 12/1) · 11/19–3/31/27: targeted $30 off (3+ lines) / $60 off (4+ lines) — check Members Hub/Einstein360 eligibility first</li>'
     details=(
