@@ -99,7 +99,8 @@ def build(state,pub,out):
     DATE_LONG=d.strftime('%B ')+str(d.day)+', 2026'; DATE_MD=f'{d.month}/{d.day}'
     PLAN_HIST=' → '.join(str(x) for x in state['plan_history'])
     reps=state['reps']; n=len(reps)
-    R=[(r['name'],r['rgu'],r['rgu']/(60*DAY/DIM)*100,r['int'],r['tv'],r['voice'],r['home'],r['mt'],r['mo'],r['sel'],r['plus'],r['leg'],r['wear'],r['acc'],0) for r in reps]
+    _tr=state['market']['59010'].get('trend'); TF=(_tr/100*TGT/ACT) if (_tr and ACT>0) else DIM/DAY  # report's own trend multiplier (Store-MTD RGU Trend / Activated)
+    R=[(r['name'],r['rgu'],r['rgu']*TF/60*100,r['int'],r['tv'],r['voice'],r['home'],r['mt'],r['mo'],r['sel'],r['plus'],r['leg'],r['wear'],r['acc'],0) for r in reps]
     SHARE=math.ceil((ACT+SELL*LEFT)/n)
     m=lambda x:f"${x:,.2f}"
     nps=state['nps']['59010'][1]
@@ -136,8 +137,8 @@ def build(state,pub,out):
         f=(dd-DAY)/LEFT; mo_=MO+Mtot*f; pl_=PL+(Ptot-PL)*f; rg=ACT+round(SELL*LEFT*f)
         cp+=f'<tr><td class="nm">{lab}</td><td>{rg} <span class="mut">({rg/GOAL*100:.0f}% of {GOAL})</span></td><td>{pl_/mo_*100:.0f}%</td><td>{S["tv"]+round(TVN*f)}</td><td>{STAB+round(TABN*f)}</td><td>{S["wear"]+round(WN*f)}</td></tr>'
     ystore=state.get('daily_store_rgu',0)
-    mv=sorted([(r['daily'],r['name'].split()[0]) for r in reps if r.get('daily')],reverse=True)
-    wins=[f'<li><b>Store +{ystore} RGUs yesterday</b> ({ACT-ystore} → {ACT})</li>']
+    mv=sorted([(r['daily'],r['name'].split()[0]) for r in reps if r.get('daily',0)>0],reverse=True)
+    wins=[f'<li><b>Store {ystore:+d} RGUs yesterday</b>'+(' (chargebacks/deactivations)' if ystore<0 else '')+f' ({ACT-ystore} → {ACT})</li>']
     if mv: wins.append('<li><b>'+mv[0][1]+f' +{mv[0][0]}</b>'+''.join(f' · {nm_} +{v}' for v,nm_ in mv[1:3])+'</li>')
     tv4=[r['name'].split()[0] for r in reps if r['tv']>=4]
     wins.append('<li>TV minimum (4) hit: '+', '.join(tv4)+'</li>' if tv4 else f"<li>Tablets: Sunrise has {STAB}</li>")
@@ -148,7 +149,7 @@ def build(state,pub,out):
     tv0=[r['name'].split()[0] for r in reps if r['tv']==0]
     foc=[f'<li><b>NPS {nps:.1f}</b> — '+('under' if nps<90 else 'at')+f' our 90 goal ({state["nps"]["59010"][0]} responses)</li>',
          f'<li><b>XM+ Attach {ATT0:.0f}%</b> — goal 65%'+(' · above 65%: '+', '.join(above) if above else '')+'</li>']
-    behind=[f"{r['name'].split()[0]} ({r['rgu']})" for r in reps if r['rgu']<60*DAY/DIM]
+    behind=[f"{r['name'].split()[0]} ({r['rgu']})" for r in reps if r['rgu']*TF<60]
     foc.insert(0,'<li><b>California ask: 60 RGUs this month is the minimum</b> to stay on the team (60 is the floor, not max pay)'+(' · behind the 60 pace: '+', '.join(behind) if behind else ' · everyone is on pace')+'</li>')
     foc.append('<li><b>Push tablets — PLAY CALL:</b> GIG Speed 5-year $60.00 + tablet $29 = <b>$90/mo bundle</b>. Better than Every Day Pricing · 5-year deal · after 3 years the price drops to $60 for the last 2 years</li>')
     extra=[]

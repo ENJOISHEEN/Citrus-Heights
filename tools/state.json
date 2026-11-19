@@ -1,6 +1,6 @@
 {
  "date": "2026-11-18",
- "target": 643,
+ "target": 627,
  "plan_history": [
   740,
   750,
@@ -22,7 +22,8 @@
   635,
   632,
   641,
-  643
+  643,
+  627
  ],
  "store": {
   "rgu": 374,
@@ -268,7 +269,7 @@
  "market": {
   "59041": {
    "name": "Lodi",
-   "target": 271,
+   "target": 268,
    "rgu": 171,
    "traffic": 1513,
    "int": 34,
@@ -282,11 +283,11 @@
    "leg": 1,
    "wear": 3,
    "acc": 644.8,
-   "trend": 112.0
+   "trend": 102.8
   },
   "59083": {
    "name": "Antelope",
-   "target": 299,
+   "target": 294,
    "rgu": 179,
    "traffic": 1658,
    "int": 57,
@@ -300,11 +301,11 @@
    "leg": -21,
    "wear": 2,
    "acc": 869.82,
-   "trend": 123.2
+   "trend": 98.1
   },
   "59112": {
    "name": "Placerville",
-   "target": 136,
+   "target": 135,
    "rgu": 70,
    "traffic": 764,
    "int": 20,
@@ -318,11 +319,11 @@
    "leg": 6,
    "wear": 3,
    "acc": 1184.75,
-   "trend": 140.5
+   "trend": 83.5
   },
   "59007": {
    "name": "Downtown Sacramento",
-   "target": 267,
+   "target": 263,
    "rgu": 176,
    "traffic": 1483,
    "int": 72,
@@ -336,11 +337,11 @@
    "leg": -15,
    "wear": 2,
    "acc": 1019.69,
-   "trend": 131.0
+   "trend": 107.8
   },
   "59005": {
    "name": "Elk Grove",
-   "target": 773,
+   "target": 751,
    "rgu": 604,
    "traffic": 4237,
    "int": 188,
@@ -354,11 +355,11 @@
    "leg": -17,
    "wear": 19,
    "acc": 1774.53,
-   "trend": 142.3
+   "trend": 129.6
   },
   "59010": {
    "name": "Sunrise Plaza",
-   "target": 643,
+   "target": 627,
    "rgu": 374,
    "traffic": 3540,
    "int": 90,
@@ -372,11 +373,11 @@
    "leg": -5,
    "wear": 12,
    "acc": 3659.13,
-   "trend": 115.1
+   "trend": 96.1
   },
   "59004": {
    "name": "Rancho Cordova",
-   "target": 431,
+   "target": 421,
    "rgu": 258,
    "traffic": 2376,
    "int": 91,
@@ -390,11 +391,11 @@
    "leg": 1,
    "wear": 7,
    "acc": 1604.63,
-   "trend": 114.4
+   "trend": 98.7
   },
   "59095": {
    "name": "Florin Towne Center",
-   "target": 329,
+   "target": 319,
    "rgu": 164,
    "traffic": 1798,
    "int": 73,
@@ -408,7 +409,7 @@
    "leg": -23,
    "wear": 7,
    "acc": 499.87,
-   "trend": 116.7
+   "trend": 82.8
   }
  },
  "nps": {
